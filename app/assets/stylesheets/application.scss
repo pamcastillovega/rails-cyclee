@@ -10,3 +10,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 95%;
+}
