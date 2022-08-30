@@ -17,7 +17,7 @@ user_bob = User.create(
   last_name: 'Bobberson',
   email: 'bob.bobberson@gmail.com',
   password: 'password',
-  type: USER_TYPES.sample
+  user_type: USER_TYPES.sample
 )
 puts 'Created user'
 
@@ -26,7 +26,7 @@ user_anna = User.create(
   last_name: 'Annason',
   email: 'anna.annason@gmail.com',
   password: 'password',
-  type: USER_TYPES.sample
+  user_type: USER_TYPES.sample
 )
 puts 'Created user'
 
@@ -34,8 +34,8 @@ user_yc = User.create(
   first_name: 'YC',
   last_name: 'Low',
   email: 'yc.low@gmail.com',
-  password: 'password'
-  type: USER_TYPES.sample
+  password: 'password',
+  user_type: USER_TYPES.sample
 )
 puts 'Created user'
 
@@ -43,32 +43,32 @@ user_alex = User.create(
   first_name: 'Alex',
   last_name: 'Alexson',
   email: 'alex.alexson@gmail.com',
-  password: 'password'
-  type: USER_TYPES.sample
+  password: 'password',
+  user_type: USER_TYPES.sample
 )
 puts 'Created user'
 
 lane1 = Lane.create(
   name: 'Lane 1',
-  type: LANE_TYPES.sample
+  lane_type: LANE_TYPES.sample
 )
 puts 'Created lane'
 
 lane2 = Lane.create(
   name: 'Lane 2',
-  type: LANE_TYPES.sample
+  lane_type: LANE_TYPES.sample
 )
 puts 'Created lane'
 
 lane3 = Lane.create(
   name: 'Lane 3',
-  type: LANE_TYPES.sample
+  lane_type: LANE_TYPES.sample
 )
 puts 'Created lane'
 
 lane4 = Lane.create(
   name: 'Lane 4',
-  type: LANE_TYPES.sample
+  lane_type: LANE_TYPES.sample
 )
 puts 'Created lane'
 
@@ -146,31 +146,31 @@ puts 'Parking History created'
 
 Report.create(
   parking_history: ph1,
-  date: '18/09/2022'
-  time: '13:00'
+  date: '18/09/2022',
+  time: '13:00',
   comment: 'Someone stole my pedals wtf'
 )
 
 Report.create(
   parking_history: ph3,
-  date: '18/09/2022'
-  time: '15:00'
+  date: '18/09/2022',
+  time: '15:00',
   comment: 'Crazy man asking me to join his MLM business'
 )
 
 Report.create(
   parking_location: address2,
-  user: user_anna
-  date: '18/09/2022'
-  time: '17:00'
+  user: user_anna,
+  date: '18/09/2022',
+  time: '17:00',
   comment: 'Saw someone touching bike chains and sniffing'
 )
 
 Report.create(
   parking_location: address4,
-  user: user_yc
-  date: '18/09/2022'
-  time: '19:00'
+  user: user_yc,
+  date: '18/09/2022',
+  time: '19:00',
   comment: 'Saw Michael Myers lurking in that area yikes'
 )
 
