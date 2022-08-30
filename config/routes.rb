@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :lanes do
     resources :reviews
+    member do
+      get :sample
+    end
   end
 
   resources :users do
