@@ -2,7 +2,7 @@ class ParkingLocationsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @parkinglocations = ParkingLocations.all
+    @parkinglocations = ParkingLocation.all
     @markers = @parkinglocations.geocoded.map do |location|
       {
         lat: location.latitude,
