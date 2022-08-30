@@ -1,7 +1,8 @@
 USER_TYPES = %w[Sport Delivery Commuter]
-LANE_TYPES = %w[Protected Striped Buffered ]
+LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
 
 puts 'Cleaning up database'
+
 User.destroy_all
 Lane.destroy_all
 Review.destroy_all
