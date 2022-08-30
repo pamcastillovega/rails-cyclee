@@ -1,4 +1,6 @@
 class LanesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @lanes = Lane.all
     # @markers = @lanes.geocoded.map do |lane|

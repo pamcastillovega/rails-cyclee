@@ -1,4 +1,6 @@
 class ParkingLocationsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @parkinglocations = ParkingLocations.all
     @markers = @parkinglocations.geocoded.map do |location|
