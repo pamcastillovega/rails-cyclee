@@ -10,9 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_030353) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_065947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "lanes", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parking_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "parking_location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_location_id"], name: "index_parking_histories_on_parking_location_id"
+    t.index ["user_id"], name: "index_parking_histories_on_user_id"
+  end
+
+  create_table "parking_locations", force: :cascade do |t|
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text "comment"
+    t.date "date"
+    t.time "time"
+    t.bigint "parking_location_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "parking_history_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_history_id"], name: "index_reports_on_parking_history_id"
+    t.index ["parking_location_id"], name: "index_reports_on_parking_location_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "lane_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lane_id"], name: "index_reviews_on_lane_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +73,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_030353) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "parking_histories", "parking_locations"
+  add_foreign_key "parking_histories", "users"
+  add_foreign_key "reports", "parking_histories"
+  add_foreign_key "reports", "parking_locations"
+  add_foreign_key "reports", "users"
+  add_foreign_key "reviews", "lanes"
+  add_foreign_key "reviews", "users"
 end
