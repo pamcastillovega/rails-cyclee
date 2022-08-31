@@ -1,0 +1,12 @@
+<h1>H1</h1>
+<h2>H2</h2>
+<p>p</p>
+<%= link_to "Button", root_path, class: "btn btn-cyclee1" %>
+<br>
+<%= link_to "Button", root_path, class: "btn btn-cyclee2" %>
+<br>
+<%= link_to "Button", root_path, class: "btn btn-cyclee3" %>
+<br>
+<%= simple_form_for :lane, html: { class: "search-cyclee" } do |f| %>
+  <%= f.text_field :name, placeholder: "Search" %>
+  <% end %>
