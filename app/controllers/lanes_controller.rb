@@ -10,6 +10,7 @@ class LanesController < ApplicationController
       #     info_window: render_to_string(partial: "info_window", locals: { lane: lane })
       #   }
       # end
+
   end
 
   def sample
