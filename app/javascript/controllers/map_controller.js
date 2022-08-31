@@ -64,6 +64,10 @@ export default class extends Controller {
 
     });
 
+    e.target.on('click', 'route', (e) => {
+      console.log(e.features[0].geometry.coordinates)
+    });
+
   }
 
 
