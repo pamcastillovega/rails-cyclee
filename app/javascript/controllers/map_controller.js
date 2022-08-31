@@ -50,7 +50,7 @@ export default class extends Controller {
     // console.log(e.target);
     e.target.addSource('route', {
       'type': 'geojson',
-      'data': 'https://github.com/pamcastillovega/rails-cyclee/blob/master/bike-network-data-4326.geojson'
+      'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
     });
 
     e.target.addLayer({
@@ -61,10 +61,7 @@ export default class extends Controller {
       'line-join': 'round',
       'line-cap': 'round'
     },
-      'paint': {
-      'line-color': '#888',
-      'line-width': 8
-    }
+
     });
 
   }
