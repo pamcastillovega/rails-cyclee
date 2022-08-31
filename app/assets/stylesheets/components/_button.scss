@@ -1,0 +1,48 @@
+.btn-cyclee1 {
+  color: #616161;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid $c-darkgray;
+  width: 166px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: $c-darkgray;
+    color: white;
+  }
+}
+
+.btn-cyclee2 {
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid $c-darkgray;
+  width: 166px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $c-darkgray;
+  &:hover {
+    background-color: transparent;
+    color: $c-darkgray;
+  }
+}
+
+.btn-cyclee3 {
+  color: #616161;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid #616161;
+  width: 370px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #616161;
+    color: white;
+  }
+}

@@ -5,10 +5,14 @@ class LanesController < ApplicationController
     @lanes = Lane.all
     # @markers = @lanes.geocoded.map do |lane|
     #   {
-    #     lat: lane.latitude,
-    #     lng: lane.longitude,
-    #     info_window: render_to_string(partial: "info_window", locals: { lane: lane })
-    #   }
-    # end
+      #     lat: lane.latitude,
+      #     lng: lane.longitude,
+      #     info_window: render_to_string(partial: "info_window", locals: { lane: lane })
+      #   }
+      # end
+  end
+
+  def sample
+
   end
 end
