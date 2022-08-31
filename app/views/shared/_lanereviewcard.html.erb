@@ -1,16 +1,28 @@
-<div class="cyclee-lanereview-card">
-  <%= link_to lane.name, root_path %>
-  <%= link_to "Review", root_path, class: "btn btn-cyclee3" %>
-  <div class="cyclee-lanereview-card-image">
-    <%= image_tag "parklocation.png" %>
+<div class="cyclee-card">
+  <div class="cyclee-lane cyclee-big cyclee-red">
+  <p><%= link_to lane.name, root_path %></p>
+  <i class="fa-solid fa-angle-right fa-xl"></i>
   </div>
+  <br>
+  <%= link_to "Review", root_path, class: "btn btn-cyclee3" %>
+  <br>
 
-  <div class="cyclee-lanereview-card-contents">
-    <div class="cyclee-lanereview-card-user">
-      <%= image_tag "defaultavatar.png" %>
-      <p><%= user.first_name %> <%= user.last_name %></p>
+  <div class="cyclee-card-image">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="cyclee-card-contents">
+    <div class="cyclee-card-user">
+      <%= image_tag "logo.png" %>
     </div>
-    <p class="text-content"><%= review.comment %></p>
-    <p><%= review.rating %></p>
+    <div class="text-content">
+      <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+      <p><%= review.comment %></p>
+      <br>
+      <p><%= review.rating %><i class="fa-solid fa-star"></i></p>
+    </div>
   </div>
 </div>
+
+
+
+<%# --- %>
