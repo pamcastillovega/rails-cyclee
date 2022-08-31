@@ -12,6 +12,6 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "db": "rails db:drop db:create db:migrate"
+    "db": "rails db:drop db:create db:migrate db:seed"
   }
 }
