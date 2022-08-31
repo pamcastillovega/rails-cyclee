@@ -10,3 +10,40 @@
 <%= simple_form_for :lane, html: { class: "search-cyclee" } do |f| %>
   <%= f.text_field :name, placeholder: "Search" %>
   <% end %>
+<br>
+<div class="footer-cyclee">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-location-dot fa-2xl"></i>
+  <% end %>
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-map-pin fa-2xl"></i>
+  <% end %>
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-person-biking fa-2xl"></i>
+  <% end %>
+</div>
+<br>
+<div class="cyclee-map-toggle">
+  <i class="fa-solid fa-map-pin fa-2xl"></i>
+</div>
+<br>
+<div class="cyclee-report-card-address">
+  <i class="fa-solid fa-flag fa-xl"></i>
+  <div class="cyclee-report-card-title">
+    <h2>Report Address Here</h2>
+    <p>Content Goes Here</p>
+  </div>
+</div>
+<br>
+<div class="cyclee-report-card">
+  <div class="cyclee-report-card-image">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="cyclee-report-card-contents">
+    <div class="cyclee-report-card-user">
+      <%= image_tag "logo.png" %>
+      <p>Username</p>
+    </div>
+    <p class="text-content">Report Contents Here</p>
+  </div>
+</div>
