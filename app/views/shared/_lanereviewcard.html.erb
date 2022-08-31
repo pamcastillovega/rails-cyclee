@@ -1,0 +1,16 @@
+<div class="cyclee-lanereview-card">
+  <%= link_to lane.name, root_path %>
+  <%= link_to "Review", root_path, class: "btn btn-cyclee3" %>
+  <div class="cyclee-lanereview-card-image">
+    <%= image_tag "parklocation.png" %>
+  </div>
+
+  <div class="cyclee-lanereview-card-contents">
+    <div class="cyclee-lanereview-card-user">
+      <%= image_tag "defaultavatar.png" %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+    </div>
+    <p class="text-content"><%= review.comment %></p>
+    <p><%= review.rating %></p>
+  </div>
+</div>
