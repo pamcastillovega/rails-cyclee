@@ -3,16 +3,16 @@ class LanesController < ApplicationController
 
   def index
     @lanes = Lane.all
-    # @markers = @lanes.geocoded.map do |lane|
-    #   {
-      #     lat: lane.latitude,
-      #     lng: lane.longitude,
-      #     info_window: render_to_string(partial: "info_window", locals: { lane: lane })
-      #   }
-      # end
+    @parkinglocations = ParkingLocation.all
+    @markers = @parkinglocations.geocoded.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { location: location })
+      }
+    end
   end
 
   def sample
-
   end
 end
