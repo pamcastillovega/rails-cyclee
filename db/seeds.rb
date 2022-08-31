@@ -146,6 +146,8 @@ puts 'Parking History created'
 
 Report.create(
   parking_history: ph1,
+  parking_location: ph1.parking_location,
+  user: ph1.user,
   date: '18/09/2022',
   time: '13:00',
   comment: 'Someone stole my pedals wtf'
@@ -153,6 +155,8 @@ Report.create(
 
 Report.create(
   parking_history: ph3,
+  parking_location: ph3.parking_location,
+  user: ph3.user,
   date: '18/09/2022',
   time: '15:00',
   comment: 'Crazy man asking me to join his MLM business'
