@@ -1,0 +1,17 @@
+<div class="cyclee-report-card">
+  <div class="cyclee-report-card-image">
+    <%= image_tag "parklocation.png" %>
+  </div>
+  <div class="cyclee-report-card-contents">
+    <div class="cyclee-report-card-user">
+      <%= image_tag "defaultavatar.png" %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+      <p><%= report.date %></p>
+      <p><%= report.time.strftime('%H:%M') %></p>
+    </div>
+    <p class="text-content"><%= report.comment %></p>
+  </div>
+</div>
+
+<%# --- %>
+<%# --- %>
