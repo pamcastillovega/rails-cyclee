@@ -20,9 +20,9 @@
   }
 }
 
-.cyclee-report-card{
+.cyclee-card {
   width: 100%;
-  .cyclee-report-card-image {
+  .cyclee-card-image {
     width: 100%;
     height: 248px;
     overflow: hidden;
@@ -36,11 +36,11 @@
       transform: translateY(-50%);
     }
   }
-  .cyclee-report-card-contents {
+  .cyclee-card-contents {
     display: flex;
     padding: 16px;
     height: auto;
-    .cyclee-report-card-user {
+    .cyclee-card-user {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -54,6 +54,32 @@
     .text-content {
       font-size: 14px;
       line-height: 18px;
+      p {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+.cyclee-history {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  height: 90px;
+  width: 370px;
+  border: 1px solid $c-lightgray;
+  border-radius: 4px;
+  .fa-map-pin {
+    color: $c-green;
+  }
+  .fa-flag {
+    color: $c-red;
+  }
+  .cyclee-history-content {
+    margin: 16px;
+    flex-grow: 1;
+    p {
+      margin: 0;
     }
   }
 }
@@ -80,41 +106,25 @@
   }
 }
 
-
-.cyclee-lanereview-card{
-  width: 100%;
-  .cyclee-lanereview-card-image {
-    width: 100%;
-    height: 248px;
-    overflow: hidden;
-    position: relative;
-
-    img {
-      width: 100%;
-      object-fit: contain;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  }
-  .cyclee-lanereview-card-contents {
+.cyclee-direction-card {
+  display: flex;
+  width: 331px;
+  height: 82px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  color: $c-darkgray;
+  align-items: center;
+  padding: 16px 32px;
+  box-shadow: 1px 1px 1px 1px;
+  .cyclee-direction-text {
+    margin: 0 24px;
+    flex-grow: 1;
     display: flex;
-    padding: 16px;
-    height: auto;
-    .cyclee-lanereview-card-user {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 16px;
-      img {
-        border-radius: 50%;
-        width: 57px;
-        height: 57px;
-      }
-    }
-    .text-content {
-      font-size: 14px;
-      line-height: 18px;
+    flex-direction: column;
+    h1, h2 {
+      margin: 0;
+      align-self: center;
+      font-weight: bold;
     }
   }
 }
