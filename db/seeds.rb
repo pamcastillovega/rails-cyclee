@@ -75,28 +75,32 @@ puts 'Created lane'
 Review.create(
   rating: rand(5),
   lane: lane1,
-  user: user_bob
+  user: user_bob,
+  comment: 'Had such a fun time cycling thru this route!! Highly recommend!'
 )
 puts 'Review created'
 
 Review.create(
   rating: rand(5),
   lane: lane2,
-  user: user_anna
+  user: user_anna,
+  comment: "Homeless people galore, do not like. Please don't @ me."
 )
 puts 'Review created'
 
 Review.create(
   rating: rand(5),
   lane: lane3,
-  user: user_yc
+  user: user_yc,
+  comment: "I'm fine with the event happening around this path but it can't be disrupting if you want peace and quiet."
 )
 puts 'Review created'
 
-Review.create(
+Review.new(
   rating: rand(5),
   lane: lane4,
-  user: user_alex
+  user: user_alex,
+  comment: "Path is FULL of holes do not recommend."
 )
 puts 'Review created'
 
