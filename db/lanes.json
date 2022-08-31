@@ -1,0 +1,53 @@
+[{
+  "type": "Feature",
+  "properties": {
+    "INSTALLED": 2001,
+    "UPGRADED": 2009,
+    "STREET_NAME": "Martin Goodman / Waterfront Trl",
+    "FROM_STREET": "Lake Shore Blvd W",
+    "TO_STREET": "Martin Goodman Trl Branch",
+    "SURFACE": null,
+    "DIR_LOWORDER": null,
+    "INFRA_LOWORDER": "Multi-Use Trail",
+    "ORIG_LOWORDER_INFRA": null,
+    "DIR_HIGHORDER": null,
+    "INFRA_HIGHORDER": "Multi-Use Trail",
+    "LAST_EDIT_DATE": null,
+    "UPGRADE_DESCRIPTION": null
+  },
+  "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+      [
+        [
+          -79.4036386937994,
+          43.6349938275931
+        ],
+        [
+          -79.4035474364103,
+          43.635190601919
+        ],
+        [
+          -79.4034584014752,
+          43.6353457826448
+        ],
+        [
+          -79.403361155957,
+          43.6354890115195
+        ],
+        [
+          -79.4032771599716,
+          43.6355773250736
+        ],
+        [
+          -79.4031498037583,
+          43.6357397192328
+        ],
+        [
+          -79.4031455665074,
+          43.6357466017015
+        ]
+      ]
+    ]
+  }
+}]

@@ -1,3 +1,7 @@
+require_relative 'seed_lanes'
+
+# seed_lanes
+
 USER_TYPES = %w[Sport Delivery Commuter]
 LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
 
