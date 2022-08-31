@@ -1,0 +1,21 @@
+.footer-cyclee {
+  height: 71px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px -1px 2px 0px;
+  background-color: white;
+  a {
+    color: $c-darkgray;
+  }
+  .fa-location-dot:active {
+    color: $c-red;
+  }
+  .fa-map-pin:active {
+    color: $c-red;
+  }
+  .fa-person-biking:active {
+    color: $c-red;
+  }
+}
