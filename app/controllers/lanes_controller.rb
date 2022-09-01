@@ -13,6 +13,9 @@ class LanesController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def sample
   end
 
