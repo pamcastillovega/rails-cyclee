@@ -1,10 +1,26 @@
 <%= render "map" %>
 
 <div class="listing-container">
+  <div class="wrap">
+    <%= link_to root_path, class: "link-wrap" do %>
+      <div class="cyclee-lane cyclee-big
+        <% if @avgrating <= 2 %>
+          <%= 'cyclee-red' %>
+        <% elsif @avgrating == 3 %>
+          <%= 'cyclee-yellow' %>
+        <% elsif @avgrating > 3 %>
+          <%= 'cyclee-green' %>
+        <% end %>" %>
+          <p><%= @lane.name %></p>
+          <i class="fa-solid fa-angle-right fa-xl"></i>
+      </div>
+    <% end %>
 
-  <h1>Lane</h1>
+    <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
+    <p>Rating: <%= @avgrating %></p>
+    <%= link_to "Review", root_path, class: "btn btn-cyclee3" %>
+  </div>
 
-  <p>Name:</p>
-  <p>Type:</p>
+  <%# <%= render "shared/lanereviewcard", user: @user, review: @review, lane: @lane %>
 
 </div>
