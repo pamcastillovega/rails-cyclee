@@ -1,5 +1,9 @@
+  <div class="cyclee-lane cyclee-big cyclee-red">
+  <p><%=  @lane.name %></p>
+  </div>
 
   <%= simple_form_for [@lane, @review] do |f| %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "How was your experience with this lane?", input_html: {data: {controller: "star-rating"}} %>
     <%= f.input :comment %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit 'Submit', class: "btn btn-cyclee2" %>

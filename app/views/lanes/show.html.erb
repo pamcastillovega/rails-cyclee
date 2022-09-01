@@ -1,2 +1,4 @@
 
-<%= render "shared/lanereviewcard", user: @user, review: @review, lane: @lane %>
+<% @reviews.each do |review| %>
+  <%= render "shared/lanereviewcard", user: review.user, review: review, lane: @lane %>
+<% end %>

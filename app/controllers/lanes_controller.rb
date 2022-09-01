@@ -17,6 +17,12 @@ class LanesController < ApplicationController
   end
 
   def show
+    @lane = Lane.find(params[:id])
+    @reviews = @lane.reviews #=> [   ]
+  # @user = User.first
+  # @report = Report.first
+  # @review = Review.first
+  # @lane = Lane.first
 
 
   end
