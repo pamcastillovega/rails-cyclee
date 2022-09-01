@@ -21,7 +21,7 @@ class LanesController < ApplicationController
     @reviews.each do |review|
       @ratings << review.rating
     end
-    @avgrating = @ratings.sum / @ratings.length
+    @avgrating = @ratings.length.zero? ? 0 : @ratings.sum / @ratings.length
   end
 
   def sample
