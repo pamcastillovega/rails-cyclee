@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reports/create'
   devise_for :users
   root to: "lanes#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -17,6 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :parking_locations do
-    resources :reports
+    resources :reports, only: %i[show create]
   end
 end
