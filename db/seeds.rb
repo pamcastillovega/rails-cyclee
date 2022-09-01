@@ -1,4 +1,4 @@
-require_relative 'seed_lanes'
+# require_relative 'seed_lanes'
 
 # seed_lanes
 
@@ -13,7 +13,6 @@ Review.destroy_all
 ParkingLocation.destroy_all
 ParkingHistory.destroy_all
 Report.destroy_all
-
 
 puts 'Seeding database'
 user_bob = User.create(
@@ -100,7 +99,7 @@ Review.create(
 )
 puts 'Review created'
 
-Review.new(
+Review.create(
   rating: rand(5),
   lane: lane4,
   user: user_alex,
