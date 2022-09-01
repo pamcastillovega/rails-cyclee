@@ -1,19 +1,18 @@
-<%# <%= render "map" %>
+<%= render "map" %>
 
 <div class="listing-container">
   <div class="wrap">
-      <div class="cyclee-lane cyclee-big
-        <% if @avgrating <= 2 %>
-          <%= 'cyclee-red' %>
-        <% elsif @avgrating == 3 %>
-          <%= 'cyclee-yellow' %>
-        <% elsif @avgrating > 3 %>
-          <%= 'cyclee-green' %>
-        <% end %>" %>
-          <p><%= @lane.name %></p>
-          <i class="fa-solid fa-angle-right fa-xl"></i>
-      </div>
-
+    <div class="cyclee-lane cyclee-big
+      <% if @avgrating <= 2 %>
+        <%= 'cyclee-red' %>
+      <% elsif @avgrating == 3 %>
+        <%= 'cyclee-yellow' %>
+      <% elsif @avgrating > 3 %>
+        <%= 'cyclee-green' %>
+      <% end %>" %>
+        <p><%= @lane.name %></p>
+        <i class="fa-solid fa-angle-right fa-xl"></i>
+    </div>
     <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
     <p>Rating: <%= @avgrating %></p>
     <%= link_to "Review", new_lane_review_path(@lane), class: "btn btn-cyclee3" %>
