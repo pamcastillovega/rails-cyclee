@@ -12,7 +12,7 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    console.log(this.lanesCoordinatesValue)
+
     this.map = new mapboxgl.Map({
       container: this.wrapperTarget,
       style: "mapbox://styles/mapbox/light-v10",
@@ -63,19 +63,10 @@ export default class extends Controller {
       e.target.dataset.showMarkers = 'true'
       // this.map.marker.forEach( mark => mark.remove() )
     }
-    // e.currentTarget.classList.toggle("hello")
-    // console.log(e.currentTarget.className)
-    // console.log(e.currentTarget.className.includes("hello"))
 
   }
 
     loadRoutes(e) {
-      // console.log(this.lanesCoordinatesValue)
-      // console.log("load Routes")
-      // const cood = (JSON.parse(this.lanesCoordinatesValue))
-      // console.log(cood)
-      // console.log(typeof this.lanesCoordinatesValue)
-
       e.target.addSource('route', {
       'type': 'geojson',
       'data': {
