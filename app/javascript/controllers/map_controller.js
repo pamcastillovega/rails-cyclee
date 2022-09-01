@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 export default class extends Controller {
+  static targets = ['wrapper']
   static values = {
     apiKey: String,
     markers: Array,
@@ -13,7 +14,7 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     console.log(this.lanesCoordinatesValue)
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.wrapperTarget,
       style: "mapbox://styles/mapbox/light-v10",
       center: [-79.41241607325394, 43.651070],
       zoom: 12
@@ -50,15 +51,16 @@ export default class extends Controller {
     // console.log(e.target.dataset.showMarkers == 'true');
     // this.map._markers.forEach( marker => marker.remove() )
 
-    if(e.target.dataset.showMarkers) {
-      console.log(e.target.dataset.showMarkers)
+    if(e.target.dataset.showMarkers == 'true') {
+      // console.log(typeof (e.target.dataset.showMarkers == 'true'))
       this.#addMarkersToMap()
-      e.target.dataset.showMarkers = false
+      e.target.dataset.showMarkers = 'false'
     } else {
-      this.markersValue.forEach((marker) => {
-        marker.remove()
+      this.map._markers.forEach((m) => {
+        m.remove()
+        console.log("removed marker");
       })
-      // e.target.dataset.showMarkers = true
+      e.target.dataset.showMarkers = 'true'
       // this.map.marker.forEach( mark => mark.remove() )
     }
     // e.currentTarget.classList.toggle("hello")
@@ -68,11 +70,11 @@ export default class extends Controller {
   }
 
     loadRoutes(e) {
-      console.log(this.lanesCoordinatesValue)
-      console.log("load Routes")
+      // console.log(this.lanesCoordinatesValue)
+      // console.log("load Routes")
       // const cood = (JSON.parse(this.lanesCoordinatesValue))
       // console.log(cood)
-      console.log(typeof this.lanesCoordinatesValue)
+      // console.log(typeof this.lanesCoordinatesValue)
 
       e.target.addSource('route', {
       'type': 'geojson',
