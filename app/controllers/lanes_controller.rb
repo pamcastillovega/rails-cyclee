@@ -3,6 +3,7 @@ class LanesController < ApplicationController
 
   def index
     @lanes = Lane.all
+    @lane = Lane.last
     @parkinglocations = ParkingLocation.all
     @markers = @parkinglocations.geocoded.map do |location|
       {
