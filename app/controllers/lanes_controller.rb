@@ -15,4 +15,14 @@ class LanesController < ApplicationController
 
   def sample
   end
+
+  def show
+  @user = User.first
+  @report = Report.first
+  @review = Review.first
+  @lane = Lane.first
+
+
+
+  end
 end

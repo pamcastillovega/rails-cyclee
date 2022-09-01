@@ -1,0 +1,6 @@
+
+  <%= simple_form_for [@lane, @review] do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit 'Submit', class: "btn btn-cyclee2" %>
+  <% end %>

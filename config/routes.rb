@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :parking_locations do
     resources :reports
   end
+
+  resources :reviews
 end
