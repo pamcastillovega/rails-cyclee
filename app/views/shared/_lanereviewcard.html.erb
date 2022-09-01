@@ -1,10 +1,10 @@
 <div class="cyclee-card">
   <div class="cyclee-lane cyclee-big cyclee-red">
-  <p><%= link_to lane.name, root_path %></p>
+  <p><%=  lane.name %></p>
   <i class="fa-solid fa-angle-right fa-xl"></i>
   </div>
   <br>
-  <%= link_to "Review", root_path, class: "btn btn-cyclee3" %>
+  <%= link_to "Review", new_lane_review_path(@lane), class: "btn btn-cyclee3" %>
   <br>
 
   <div class="cyclee-card-image">

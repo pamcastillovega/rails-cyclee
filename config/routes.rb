@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :parking_locations do
     resources :reports, only: %i[index create]
   end
+
+  resources :reviews
 end
