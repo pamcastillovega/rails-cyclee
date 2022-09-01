@@ -1,4 +1,4 @@
-require_relative 'seed_lanes'
+# require_relative 'seed_lanes'
 
 # seed_lanes
 
@@ -13,7 +13,6 @@ Review.destroy_all
 ParkingLocation.destroy_all
 ParkingHistory.destroy_all
 Report.destroy_all
-
 
 puts 'Seeding database'
 user_bob = User.create(
@@ -79,28 +78,32 @@ puts 'Created lane'
 Review.create(
   rating: rand(5),
   lane: lane1,
-  user: user_bob
+  user: user_bob,
+  comment: 'Had such a fun time cycling thru this route!! Highly recommend!'
 )
 puts 'Review created'
 
 Review.create(
   rating: rand(5),
   lane: lane2,
-  user: user_anna
+  user: user_anna,
+  comment: "Homeless people galore, do not like. Please don't @ me."
 )
 puts 'Review created'
 
 Review.create(
   rating: rand(5),
   lane: lane3,
-  user: user_yc
+  user: user_yc,
+  comment: "I'm fine with the event happening around this path but it can't be disrupting if you want peace and quiet."
 )
 puts 'Review created'
 
 Review.create(
   rating: rand(5),
   lane: lane4,
-  user: user_alex
+  user: user_alex,
+  comment: "Path is FULL of holes do not recommend."
 )
 puts 'Review created'
 
@@ -147,6 +150,33 @@ ph4 = ParkingHistory.create(
   user: user_alex
 )
 puts 'Parking History created'
+
+Report.create(
+  parking_history: ph1,
+  parking_location: ph1.parking_location,
+  user: ph1.user,
+  date: '18/09/2022',
+  time: '13:00',
+  comment: 'Someone stole my pedals wtf'
+)
+
+Report.create(
+  parking_history: ph1,
+  parking_location: ph1.parking_location,
+  user: ph1.user,
+  date: '18/09/2022',
+  time: '13:00',
+  comment: 'Someone stole my pedals wtf'
+)
+
+Report.create(
+  parking_history: ph1,
+  parking_location: ph1.parking_location,
+  user: ph1.user,
+  date: '18/09/2022',
+  time: '13:00',
+  comment: 'Someone stole my pedals wtf'
+)
 
 Report.create(
   parking_history: ph1,

@@ -14,6 +14,16 @@ class LanesController < ApplicationController
     end
   end
 
+  def show
+    @lane = Lane.find(params[:id])
+    @reviews = @lane.reviews
+    @ratings = []
+    @reviews.each do |review|
+      @ratings << review.rating
+    end
+    @avgrating = @ratings.sum / @ratings.length
+  end
+
   def sample
   end
 end

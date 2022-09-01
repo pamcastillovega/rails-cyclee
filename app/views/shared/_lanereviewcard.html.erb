@@ -1,0 +1,22 @@
+<div class="cyclee-card">
+
+
+  <div class="cyclee-card-image">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="cyclee-card-contents">
+    <div class="cyclee-card-user">
+      <%= image_tag "logo.png" %>
+    </div>
+    <div class="text-content">
+      <p><strong><%= user.first_name %> <%= user.last_name %></strong></p>
+      <p><%= review.comment %></p>
+      <br>
+      <p><%= review.rating %><i class="fa-solid fa-star"></i></p>
+    </div>
+  </div>
+</div>
+
+
+
+<%# --- %>

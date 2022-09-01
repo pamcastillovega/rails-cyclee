@@ -10,7 +10,9 @@
 <%= simple_form_for :lane, html: { class: "search-cyclee" } do |f| %>
   <%= f.text_field :name, placeholder: "Search" %>
   <% end %>
+
 <br>
+
 <div class="footer-cyclee">
   <%= link_to root_path do %>
     <i class="fa-solid fa-location-dot fa-2xl"></i>
@@ -22,11 +24,15 @@
     <i class="fa-solid fa-person-biking fa-2xl"></i>
   <% end %>
 </div>
+
 <br>
+
 <div class="cyclee-map-toggle">
   <i class="fa-solid fa-map-pin fa-2xl"></i>
 </div>
+
 <br>
+
 <div class="cyclee-report-card-address">
   <i class="fa-solid fa-flag fa-xl"></i>
   <div class="cyclee-report-card-title">
@@ -34,16 +40,162 @@
     <p>Content Goes Here</p>
   </div>
 </div>
+
 <br>
-<div class="cyclee-report-card">
-  <div class="cyclee-report-card-image">
+
+<div class="cyclee-card">
+  <div class="cyclee-card-image">
     <%= image_tag "logo.png" %>
   </div>
-  <div class="cyclee-report-card-contents">
-    <div class="cyclee-report-card-user">
+  <div class="cyclee-card-contents">
+    <div class="cyclee-card-user">
       <%= image_tag "logo.png" %>
       <p>Username</p>
     </div>
-    <p class="text-content">Report Contents Here</p>
+    <div class="text-content">
+      <p>Report Contents Here</p>
+    </div>
   </div>
 </div>
+
+<br>
+
+<div class="cyclee-history">
+  <i class="fa-solid fa-map-pin fa-2xl"></i>
+  <div class="cyclee-history-content">
+    <p>Date: 10/12/2022</p>
+    <p>112 Not So Cool Road, Toronto, ON</p>
+  </div>
+</div>
+
+<br>
+
+<div class="cyclee-history">
+  <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
+  <div class="cyclee-history-content">
+    <p>Date: 10/12/2022</p>
+    <p>112 Not So Cool Road, Toronto, ON</p>
+  </div>
+</div>
+
+<br>
+
+<div class="cyclee-card">
+  <div class="cyclee-card-image">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="cyclee-card-contents">
+    <div class="cyclee-card-user">
+      <%= image_tag "logo.png" %>
+    </div>
+    <div class="text-content">
+      <p><strong>Username</strong></p>
+      <p>Review Comments Here</p>
+      <br>
+      <p>5 <i class="fa-solid fa-star"></i></p>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="cyclee-lane cyclee-small cyclee-red">
+  <p>Lane Name</p>
+</div>
+
+<br>
+
+<div class="cyclee-lane cyclee-small cyclee-green">
+  <p>Lane Name</p>
+</div>
+<br>
+<div class="cyclee-lane cyclee-small cyclee-yellow">
+  <p>Lane Name</p>
+</div>
+
+<br>
+
+<%= link_to root_path, class: "link-wrap" do %>
+  <div class="cyclee-lane cyclee-big cyclee-red">
+    <p>Lane Name</p>
+    <i class="fa-solid fa-angle-right fa-xl"></i>
+  </div>
+<% end %>
+
+<br>
+<%= link_to root_path, class: "link-wrap" do %>
+  <div class="cyclee-lane cyclee-big cyclee-green">
+    <p>Lane Name</p>
+    <i class="fa-solid fa-angle-right fa-xl"></i>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to root_path, class: "link-wrap" do %>
+  <div class="cyclee-lane cyclee-big cyclee-yellow">
+    <p>Lane Name</p>
+    <i class="fa-solid fa-angle-right fa-xl"></i>
+  </div>
+<% end %>
+
+<br>
+
+<div class="for-first-child">
+  <div class="cyclee-route-card">
+    <div class="cyclee-lanes">
+      <div class="cyclee-lane cyclee-small cyclee-red">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-green">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-yellow">
+        <p>Lane Name</p>
+      </div>
+    </div>
+    <h1>5km (12 mins)</h1>
+  </div>
+
+  <div class="cyclee-route-card">
+    <div class="cyclee-lanes">
+      <div class="cyclee-lane cyclee-small cyclee-red">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-green">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-yellow">
+        <p>Lane Name</p>
+      </div>
+    </div>
+    <h1>5km (12 mins)</h1>
+  </div>
+
+  <div class="cyclee-route-card">
+    <div class="cyclee-lanes">
+      <div class="cyclee-lane cyclee-small cyclee-red">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-green">
+        <p>Lane Name</p>
+      </div>
+      <div class="cyclee-lane cyclee-small cyclee-yellow">
+        <p>Lane Name</p>
+      </div>
+    </div>
+    <h1>5km (12 mins)</h1>
+  </div>
+</div>
+
+<br>
+
+<div class="cyclee-direction-card">
+  <i class="fa-solid fa-right-long fa-4x"></i>
+  <div class="cyclee-direction-text">
+    <h1>TURN RIGHT</h1>
+    <h2>20 METRES</h2>
+  </div>
+</div>
+
+<br>

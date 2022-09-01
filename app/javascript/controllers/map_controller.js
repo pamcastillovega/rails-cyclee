@@ -107,6 +107,15 @@ export default class extends Controller {
 
     });
 
+    e.target.on('click', 'route', (e) => {
+      const coordinates = e.features[0].geometry.coordinates;
+      console.log(coordinates);
+      const type = e.features[0].properties.INFRA_HIGHORDER;
+      console.log(type);
+      const name = `${e.features[0].properties.STREET_NAME} (${e.features[0].properties.FROM_STREET} - ${e.features[0].properties.TO_STREET})`;
+      console.log(name);
+    });
+
   }
 
   #addMarkersToMap() {
