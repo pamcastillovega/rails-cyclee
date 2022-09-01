@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :reviews
+
+  resources :parking_histories # to delete this. for testing only
 end
