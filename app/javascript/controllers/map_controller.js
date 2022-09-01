@@ -22,7 +22,8 @@ export default class extends Controller {
     this.directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
-      profile: 'mapbox/cycling'
+      profile: 'mapbox/cycling',
+      interactive: false
     });
 
     this.location = new mapboxgl.GeolocateControl({
@@ -65,7 +66,12 @@ export default class extends Controller {
     });
 
     e.target.on('click', 'route', (e) => {
-      console.log(e.features[0].geometry.coordinates)
+      const coordinates = e.features[0].geometry.coordinates;
+      console.log(coordinates);
+      const type = e.features[0].properties.INFRA_HIGHORDER;
+      console.log(type);
+      const name = `${e.features[0].properties.STREET_NAME} (${e.features[0].properties.FROM_STREET} - ${e.features[0].properties.TO_STREET})`;
+      console.log(name);
     });
 
   }
