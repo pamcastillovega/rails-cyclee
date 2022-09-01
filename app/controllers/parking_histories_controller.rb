@@ -4,4 +4,5 @@ class ParkingHistoriesController < ApplicationController
 
   end
 
+
 end
