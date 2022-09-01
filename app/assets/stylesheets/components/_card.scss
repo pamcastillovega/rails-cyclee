@@ -3,8 +3,10 @@
   height: 130px;
   background: transparent;
   border-radius: 5px;
-  border: 1px solid $c-red;
+  // border: 1px solid $c-red;
   display: flex;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 1px 1px 1px 1px;
   .fa-flag {
     padding: 40px 24px;
     color: $c-red;
@@ -83,6 +85,7 @@
     }
   }
 }
+
 
 
 .cyclee-route-card {

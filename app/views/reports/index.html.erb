@@ -1,0 +1,35 @@
+<h1>oi</h1>
+
+<div class="cyclee-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('
+<%= cl_image_path @parking_location.photo.key, crop: :fill if @parking_location.photo.key.present? %>
+')">
+  <div class="cyclee-report-card-address">
+    <i class="fa-solid fa-flag fa-xl"></i>
+    <div class="cyclee-report-card-title">
+      <h2>Report Address Here</h2>
+      <p>Content Goes Here</p>
+    </div>
+  </div>
+</div>
+
+<div class="report-buttons">
+  <%= link_to "Report", root_path, class: "btn btn-cyclee1" %>
+  <%= link_to "Park", root_path, class: "btn btn-cyclee2" %>
+</div>
+
+<div class="cyclee-card">
+  <div class="cyclee-card-image">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="cyclee-card-contents">
+    <div class="cyclee-card-user">
+      <%= image_tag "logo.png" %>
+      <p>Username</p>
+    </div>
+    <div class="text-content">
+      <p>Report Contents Here</p>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
