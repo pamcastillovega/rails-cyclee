@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_065100) do
     t.time "time"
     t.bigint "parking_location_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "parking_history_id", null: false
+    t.bigint "parking_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parking_history_id"], name: "index_reports_on_parking_history_id"

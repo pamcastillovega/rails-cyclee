@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @lane = Lane.find(params[:lane_id])
     @review.lane = @lane
-    @user.lane = current_user
+    @review.user = current_user
     if @review.save!
      redirect_to lane_path(@lane)
     else
