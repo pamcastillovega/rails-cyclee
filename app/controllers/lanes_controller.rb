@@ -17,11 +17,6 @@ class LanesController < ApplicationController
   end
 
   def show
-  @user = User.first
-  @report = Report.first
-  @review = Review.first
-  @lane = Lane.first
-
 
 
   end
