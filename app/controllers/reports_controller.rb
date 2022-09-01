@@ -1,9 +1,14 @@
 class ReportsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: %i[index new]
 
   def index
     @parking_location = ParkingLocation.find(params[:parking_location_id])
-    @reports = Report.where(parking_location: @parking_location)
+    @reports = @parking_location.reports
+    @report = Report.new
+  end
+
+  def new
+
   end
 
   def create

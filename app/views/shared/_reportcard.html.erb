@@ -2,16 +2,15 @@
   <div class="cyclee-card-image">
     <%= image_tag "logo.png" %>
   </div>
+
   <div class="cyclee-card-contents">
     <div class="cyclee-card-user">
       <%= image_tag "logo.png" %>
-      <p><%= user.first_name %> <%= user.last_name %></p>
+      <p><strong><%= report.user.first_name %> <%= report.user.last_name %></strong></p>
       <p><%= report.date %></p>
       <p><%= report.time.strftime('%H:%M') %></p>
     </div>
     <p class="text-content"><%= report.comment %></p>
   </div>
-</div>
 
-<%# --- %>
-<%# --- %>
+</div>
