@@ -2,6 +2,11 @@
 
 # seed_lanes
 
+file = File.join(__dir__, 'rafi.json')
+lane_data = File.read(file)
+lanes = JSON.parse(lane_data)
+
+
 USER_TYPES = %w[Sport Delivery Commuter]
 LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
 
@@ -206,5 +211,9 @@ Report.create(
   time: '19:00',
   comment: 'Saw Michael Myers lurking in that area yikes'
 )
+
+lanes["features"].each do |lane|
+  Lane.create(coordinates: lane["geometry"]["coordinates"].first, name: lane["properties"]["STREET_NAME"], lane_type: lane["properties"]["INFRA_HIGHORDER"], objectid: lane["properties"]["OBJECTID"] )
+end
 
 puts 'Finished!'
