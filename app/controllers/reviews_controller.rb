@@ -3,17 +3,13 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @lane = Lane.find(params[:lane_id])
+    @lane = Lane.find_by(objectid: params[:objectid])
     @reviews = @lane.reviews
     @ratings = []
     @reviews.each do |review|
       @ratings << review.rating
     end
     @avgrating = @ratings.length.zero? ? 0 : @ratings.sum / @ratings.length
-    # @user = User.first
-    # @report = Report.first
-    # @review = Review.first
-    # @lane = Lane.first
   end
 
   def create
@@ -22,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.lane = @lane
     @review.user = current_user
     if @review.save
-      redirect_to lane_path(@lane)
+      redirect_to lanes_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -15,7 +15,7 @@
     </div>
     <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
     <p><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
-    <%= link_to "Review", new_lane_review_path(@lane), class: "btn btn-cyclee3" %>
+    <%= link_to "Review", new_lane_review_path(@lane, objectid: @lane.objectid), class: "btn btn-cyclee3" %>
   </div>
 
   <% @reviews.each do |review| %>
