@@ -2,10 +2,29 @@
   <%= link_to root_path do %>
     <i class="fa-solid fa-location-dot fa-2xl"></i>
   <% end %>
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-square-parking fa-2xl"></i>
+
+
+
+  <% if user_signed_in? %>
+    <%= link_to new_parking_location_path do %>
+      <i class="fa-solid fa-square-parking fa-2xl"></i>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+        <i class="fa-solid fa-square-parking fa-2xl"></i>
+    <% end %>
   <% end %>
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-person-biking fa-2xl"></i>
+
+
+
+
+  <% if user_signed_in? %>
+    <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-person-biking fa-2xl"></i>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-person-biking fa-2xl"></i>
+    <% end %>
   <% end %>
 </div>
