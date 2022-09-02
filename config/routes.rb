@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    resources :parking_histories, only: %i[index]
+  end
 
   resources :parking_locations do
     resources :reports, only: %i[index new create]
@@ -21,4 +23,9 @@ Rails.application.routes.draw do
   end
 
   resources :reviews
+
+  resources :parking_histories do
+    resources :users
+    resources :parking_locations
+  end
 end

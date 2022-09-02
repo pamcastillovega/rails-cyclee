@@ -1,7 +1,8 @@
 class ParkingHistoriesController < ApplicationController
-  def show
-    @parking_history = ParkingHistory.find(params[:id])
-
+  def index
+    @user = current_user
   end
 
+  def show
+    @parking_history = ParkingHistory.find(params[:id])
 end

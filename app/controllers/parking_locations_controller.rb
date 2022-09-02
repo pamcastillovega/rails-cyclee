@@ -3,4 +3,8 @@ class ParkingLocationsController < ApplicationController
 
   def index
   end
+
+  def new
+    @parking_location = ParkingLocation.new
+  end
 end
