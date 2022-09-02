@@ -73,10 +73,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_065100) do
     t.time "time"
     t.bigint "parking_location_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "parking_history_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parking_history_id"], name: "index_reports_on_parking_history_id"
     t.index ["parking_location_id"], name: "index_reports_on_parking_location_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -111,7 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_065100) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "parking_histories", "parking_locations"
   add_foreign_key "parking_histories", "users"
-  add_foreign_key "reports", "parking_histories"
   add_foreign_key "reports", "parking_locations"
   add_foreign_key "reports", "users"
   add_foreign_key "reviews", "lanes"
