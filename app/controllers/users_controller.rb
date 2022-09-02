@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  def parking_histories
+  def show
     @user = current_user
+    @parking_history = ParkingHistory.all
+
   end
 end

@@ -1,10 +1,25 @@
 <%= link_to "Get Current Location", root_path, class: "btn btn-cyclee3" %>
 <br>
 
- <%# <% @parking_histories.each do |parking_histories| %>
-  <%# <% if report.count > 1 %>
+
+
+
+
+
+
+
+
+
+<div class="cyclee-history">
+ <% @parking_histories.each do |parking_histories| &>
+  <% if @report.count > 1 %>
   <p><i class="fa-solid fa-solid fa-flag fa-2xl"></i></p>
-  <%# <% else %>
+  <% else %>
   <p><i class="fa-solid fa-map-pin fa-2xl"></i></p>
-  <%# <% end %>
-<%# <% end %>
+  <% end %>
+  <div class="cyclee-history-content">
+  <p><%= @parking_history.created_at %></p>
+  <p><%= @parking_location.address %></p>
+  </div>
+  <% end %>
+</div>
