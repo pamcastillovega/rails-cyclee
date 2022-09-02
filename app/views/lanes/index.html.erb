@@ -1,18 +1,14 @@
-
 <div data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-map-lanes-name-value="<%= @lane.name.to_json %>"
-      data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
-      data-map-objectID-value="">
-    <div id="map" style="width: 390px; height: 844px;"
-      data-map-target="wrapper"></div>
-    <div class="cyclee-map-toggle">
-      <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
-    </div>
-    <div class="listing-container" data-map-target="lanepartial">
-    </div>
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-map-lanes-name-value="<%= @lane.name.to_json %>"
+  data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
+  data-map-objectID-value="">
+  <div id="map" style="width: 390px; height: 844px;"
+    data-map-target="wrapper">
+    <div class="listing-container" data-map-target="lanepartial"></div>
+  </div>
+  <div class="cyclee-map-toggle">
+    <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
+  </div>
 </div>
-
-
-<%#= render "map"  %>

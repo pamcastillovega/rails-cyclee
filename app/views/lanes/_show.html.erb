@@ -1,5 +1,6 @@
 <div class="listing-container">
-  <div class="wrap">
+  <div class="bar"></div>
+  <div class="lane-wrap">
     <div class="cyclee-lane cyclee-big
       <% if @avgrating.zero? %>
         <%= 'cyclee-grey' %>
@@ -14,7 +15,7 @@
         <i class="fa-solid fa-angle-right fa-xl"></i>
     </div>
     <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
-    <p><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
+    <p class="lane-rating"><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
     <%= link_to "Review", new_lane_review_path(@lane), class: "btn btn-cyclee3" %>
   </div>
 
