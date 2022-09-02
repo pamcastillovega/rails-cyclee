@@ -3,7 +3,4 @@ class UsersController < ApplicationController
     @user = current_user
     @parking_history = ParkingHistory.all
   end
-
-
-
 end

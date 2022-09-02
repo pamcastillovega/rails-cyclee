@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :parking_histories
+    resources :parking_histories, only: %i[index]
   end
 
   resources :parking_locations do
