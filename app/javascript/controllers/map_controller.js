@@ -72,64 +72,63 @@ export default class extends Controller {
   }
 
     loadRoutes(e) {
-      e.target.addSource('route', {
-      'type': 'geojson',
-      'data': {
-        'type': 'Feature',
-        'properties': {},
-        'geometry': {
-        'type': 'LineString',
-        'coordinates': this.lanesCoordinatesValue
-      }
-    }
-    });
 
-    e.target.addSource('test', {
-      'type': 'geojson',
-      'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
-    });
+    //   e.target.addSource('route', {
+    //   'type': 'geojson',
+    //   'data': {
+    //     'type': 'Feature',
+    //     'properties': {},
+    //     'geometry': {
+    //     'type': 'LineString',
+    //     'coordinates': this.lanesCoordinatesValue
+    //   }
+    // }
+    // });
 
-    e.target.addLayer({
-      'id': 'route',
-      'type': 'line',
-      'source': 'route',
-      'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-      'paint': {
-      'line-color': '#ff0000',
-      'line-width': 8
-      }
+      e.target.addSource('test', {
+        'type': 'geojson',
+        'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+      });
 
-    });
+      // e.target.addLayer({
+      //   'id': 'route',
+      //   'type': 'line',
+      //   'source': 'route',
+      //   'layout': {
+      //   'line-join': 'round',
+      //   'line-cap': 'round'
+      // },
+      //   'paint': {
+      //   'line-color': '#ff0000',
+      //   'line-width': 8
+      //   }
 
-    e.target.addLayer({
-      'id': 'test',
-      'type': 'line',
-      'source': 'test',
-      'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-      'paint': {
-      'line-color': '#888',
-      'line-width': 8
-      }
+      // });
 
-    });
+      e.target.addLayer({
+        'id': 'test',
+        'type': 'line',
+        'source': 'test',
+        'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+        'paint': {
+        'line-color': '#888',
+        'line-width': 3
+        }
+
+      });
 
     e.target.on('click', 'test', (e) => {
       const objectID = e.features[0].properties.OBJECTID
       // update()
-      console.log(objectID);
+      // console.log(objectID);
 
       const url = `/lanes/${objectID}`
-      console.log(url)
       fetch(url, {headers: {"Accept": "text/plain"}})
         .then(response => response.text())
         .then((data) => {
-          console.log(data);
           this.lanepartialTarget.innerHTML = data
         })
 
