@@ -1,29 +1,36 @@
 import { Controller } from "@hotwired/stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+let currentMarkers = []
 
 export default class extends Controller {
+
+  static targets = ['wrapper']
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    lanesName: String,
+    lanesCoordinates: Array
   }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.wrapperTarget,
       style: "mapbox://styles/mapbox/light-v10",
       center: [-79.41241607325394, 43.651070],
       zoom: 12
     })
 
-    this.map.on('load', this.#loadRoutes)
+    this.map.on('load', this.loadRoutes.bind(this))
 
     this.directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
       profile: 'mapbox/cycling',
-      interactive: false
+      alternatives: true,
+      interactive: false,
+      controls: { instructions: false, profileSwitcher: false },
     });
 
     this.location = new mapboxgl.GeolocateControl({
@@ -34,25 +41,53 @@ export default class extends Controller {
       showUserHeading: true
     })
 
-
-    // this.#addMarkersToMap()
     // this.#fitMapToMarkers()
-
+    this.addMarkersToMap()
     this.map.addControl(this.directions, 'top-left')
     this.map.addControl(this.location, 'top-right')
-
   }
 
-  removeDirections () {
-    this.map.removeControl(this.directions);
+
+  addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      let oneMarker = new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
+      currentMarkers.push(oneMarker)
+    })
   }
 
-  #loadRoutes(e) {
-    // console.log(e.target);
-    e.target.addSource('route', {
+  toggle(e) {
+    // console.log(e.target.dataset.showMarkers == 'true');
+    // this.map._markers.forEach( marker => marker.remove() )
+    if(currentMarkers.length > 0) {
+      currentMarkers.forEach (marker => marker.remove())
+      currentMarkers = []
+    } else {
+      this.addMarkersToMap()
+    }
+  }
+
+    loadRoutes(e) {
+      e.target.addSource('route', {
       'type': 'geojson',
-      'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+      'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+        'type': 'LineString',
+        'coordinates': this.lanesCoordinatesValue
+      }
+    }
     });
+
+    // console.log(e.target);
+    // e.target.addSource('test', {
+    //   'type': 'geojson',
+    //   'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+    // });
 
     e.target.addLayer({
       'id': 'route',
@@ -62,8 +97,27 @@ export default class extends Controller {
       'line-join': 'round',
       'line-cap': 'round'
     },
+      'paint': {
+      'line-color': '#ff0000',
+      'line-width': 8
+      }
 
     });
+
+    // e.target.addLayer({
+    //   'id': 'test',
+    //   'type': 'line',
+    //   'source': 'test',
+    //   'layout': {
+    //   'line-join': 'round',
+    //   'line-cap': 'round'
+    // },
+    //   'paint': {
+    //   'line-color': '#888',
+    //   'line-width': 2
+    //   }
+
+    // });
 
     e.target.on('click', 'route', (e) => {
       const coordinates = e.features[0].geometry.coordinates;
@@ -77,15 +131,6 @@ export default class extends Controller {
   }
 
 
-  // #addMarkersToMap() {
-  //   this.markersValue.forEach((marker) => {
-  //     const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-  //     new mapboxgl.Marker()
-  //       .setLngLat([ marker.lng, marker.lat ])
-  //       .setPopup(popup)
-  //       .addTo(this.map)
-  //   })
-  // }
 
   // #fitMapToMarkers() {
   //   const bounds = new mapboxgl.LngLatBounds()

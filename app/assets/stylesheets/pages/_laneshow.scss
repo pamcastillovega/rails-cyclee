@@ -1,7 +1,12 @@
 .listing-container {
-  height: 50vh;
   width: 100%;
   background-color: white;
-  position: absolute;
-  bottom: 0;
+  padding-top: 20px;
+}
+
+.wrap {
+  margin: 50px 10px;
+  .lane-type {
+    margin: 15px 0;
+  }
 }

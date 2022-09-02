@@ -3,6 +3,7 @@ class LanesController < ApplicationController
 
   def index
     @lanes = Lane.all
+    @lane = Lane.last
     @parkinglocations = ParkingLocation.all
     @markers = @parkinglocations.geocoded.map do |location|
       {
@@ -14,13 +15,15 @@ class LanesController < ApplicationController
   end
 
   def show
+    @lane = Lane.find(params[:id])
+    @reviews = @lane.reviews
+    @ratings = []
+    @reviews.each do |review|
+      @ratings << review.rating
+    end
+    @avgrating = @ratings.length.zero? ? 0 : @ratings.sum / @ratings.length
   end
 
   def sample
-  end
-
-  def show
-
-
   end
 end
