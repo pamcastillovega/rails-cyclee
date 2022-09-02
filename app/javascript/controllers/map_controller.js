@@ -4,12 +4,13 @@ let currentMarkers = []
 
 export default class extends Controller {
 
-  static targets = ['wrapper']
+  static targets = ['wrapper', 'lanepartial']
   static values = {
     apiKey: String,
     markers: Array,
     lanesName: String,
-    lanesCoordinates: Array
+    lanesCoordinates: Array,
+    objectID: String
   }
 
   connect() {
@@ -83,11 +84,10 @@ export default class extends Controller {
     }
     });
 
-    // console.log(e.target);
-    // e.target.addSource('test', {
-    //   'type': 'geojson',
-    //   'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
-    // });
+    e.target.addSource('test', {
+      'type': 'geojson',
+      'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+    });
 
     e.target.addLayer({
       'id': 'route',
@@ -104,28 +104,42 @@ export default class extends Controller {
 
     });
 
-    // e.target.addLayer({
-    //   'id': 'test',
-    //   'type': 'line',
-    //   'source': 'test',
-    //   'layout': {
-    //   'line-join': 'round',
-    //   'line-cap': 'round'
-    // },
-    //   'paint': {
-    //   'line-color': '#888',
-    //   'line-width': 2
-    //   }
+    e.target.addLayer({
+      'id': 'test',
+      'type': 'line',
+      'source': 'test',
+      'layout': {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+      'paint': {
+      'line-color': '#888',
+      'line-width': 8
+      }
 
-    // });
+    });
 
-    e.target.on('click', 'route', (e) => {
-      const coordinates = e.features[0].geometry.coordinates;
-      console.log(coordinates);
-      const type = e.features[0].properties.INFRA_HIGHORDER;
-      console.log(type);
-      const name = `${e.features[0].properties.STREET_NAME} (${e.features[0].properties.FROM_STREET} - ${e.features[0].properties.TO_STREET})`;
-      console.log(name);
+    e.target.on('click', 'test', (e) => {
+      const objectID = e.features[0].properties.OBJECTID
+      // update()
+      console.log(objectID);
+
+      const url = `/lanes/${objectID}`
+      console.log(url)
+      fetch(url, {headers: {"Accept": "text/plain"}})
+        .then(response => response.text())
+        .then((data) => {
+          console.log(data);
+          this.lanepartialTarget.innerHTML = data
+        })
+
+
+      // const coordinates = e.features[0].geometry.coordinates;
+      // console.log(coordinates);
+      // const type = e.features[0].properties.INFRA_HIGHORDER;
+      // console.log(type);
+      // const name = `${e.features[0].properties.STREET_NAME} (${e.features[0].properties.FROM_STREET} - ${e.features[0].properties.TO_STREET})`;
+      // console.log(name);
     });
 
   }
