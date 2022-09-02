@@ -1,12 +1,17 @@
 .listing-container {
   width: 100%;
   background-color: white;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
-.wrap {
-  margin: 50px 10px;
-  .lane-type {
-    margin: 15px 0;
+.lane-wrap {
+  margin: 40px 10px;
+  .lane-type, .lane-rating {
+    margin: 15px 10px;
+    padding: 0;
   }
+}
+
+.review-wrap {
+  margin-bottom: 50px;
 }
