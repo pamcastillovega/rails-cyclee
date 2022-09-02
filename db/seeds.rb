@@ -152,7 +152,6 @@ ph4 = ParkingHistory.create(
 puts 'Parking History created'
 
 Report.create(
-  parking_history: ph1,
   parking_location: ph1.parking_location,
   user: ph1.user,
   date: '18/09/2022',
@@ -161,7 +160,6 @@ Report.create(
 )
 
 Report.create(
-  parking_history: ph1,
   parking_location: ph1.parking_location,
   user: ph1.user,
   date: '18/09/2022',
@@ -170,7 +168,6 @@ Report.create(
 )
 
 Report.create(
-  parking_history: ph1,
   parking_location: ph1.parking_location,
   user: ph1.user,
   date: '18/09/2022',
@@ -179,7 +176,6 @@ Report.create(
 )
 
 Report.create(
-  parking_history: ph1,
   parking_location: ph1.parking_location,
   user: ph1.user,
   date: '18/09/2022',
@@ -188,7 +184,6 @@ Report.create(
 )
 
 Report.create(
-  parking_history: ph3,
   parking_location: ph3.parking_location,
   user: ph3.user,
   date: '18/09/2022',
