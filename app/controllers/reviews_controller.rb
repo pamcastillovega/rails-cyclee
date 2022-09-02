@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
     @lane = Lane.find(params[:lane_id])
     @review.lane = @lane
     @review.user = current_user
-    if @review.save!
+    if @review.save
       redirect_to lane_path(@lane)
     else
       render :new, status: :unprocessable_entity
