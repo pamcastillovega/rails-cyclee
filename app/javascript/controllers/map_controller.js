@@ -1,7 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+let currentMarkers = []
 
 export default class extends Controller {
+
   static targets = ['wrapper']
   static values = {
     apiKey: String,
@@ -40,30 +42,32 @@ export default class extends Controller {
     })
 
     // this.#fitMapToMarkers()
-
+    this.addMarkersToMap()
     this.map.addControl(this.directions, 'top-left')
     this.map.addControl(this.location, 'top-right')
-
   }
 
+
+  addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      let oneMarker = new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
+      currentMarkers.push(oneMarker)
+    })
+  }
 
   toggle(e) {
     // console.log(e.target.dataset.showMarkers == 'true');
     // this.map._markers.forEach( marker => marker.remove() )
-
-    if(e.target.dataset.showMarkers == 'true') {
-      // console.log(typeof (e.target.dataset.showMarkers == 'true'))
-      this.#addMarkersToMap()
-      e.target.dataset.showMarkers = 'false'
+    if(currentMarkers.length > 0) {
+      currentMarkers.forEach (marker => marker.remove())
+      currentMarkers = []
     } else {
-      this.map._markers.forEach((m) => {
-        m.remove()
-        console.log("removed marker");
-      })
-      e.target.dataset.showMarkers = 'true'
-      // this.map.marker.forEach( mark => mark.remove() )
+      this.addMarkersToMap()
     }
-
   }
 
     loadRoutes(e) {
@@ -80,7 +84,7 @@ export default class extends Controller {
     });
 
     // console.log(e.target);
-    // e.target.addSource('route', {
+    // e.target.addSource('test', {
     //   'type': 'geojson',
     //   'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
     // });
@@ -100,6 +104,21 @@ export default class extends Controller {
 
     });
 
+    // e.target.addLayer({
+    //   'id': 'test',
+    //   'type': 'line',
+    //   'source': 'test',
+    //   'layout': {
+    //   'line-join': 'round',
+    //   'line-cap': 'round'
+    // },
+    //   'paint': {
+    //   'line-color': '#888',
+    //   'line-width': 2
+    //   }
+
+    // });
+
     e.target.on('click', 'route', (e) => {
       const coordinates = e.features[0].geometry.coordinates;
       console.log(coordinates);
@@ -111,15 +130,7 @@ export default class extends Controller {
 
   }
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(this.map)
-    })
-  }
+
 
   // #fitMapToMarkers() {
   //   const bounds = new mapboxgl.LngLatBounds()
