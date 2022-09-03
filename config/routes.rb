@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   end
 
   resources :reviews
+
+  resources :parking_histories do
+    resources :users
+    resources :parking_locations
+  end
 end
