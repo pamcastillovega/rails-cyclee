@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LaneSliderController from "./lane_slider_controller"
+application.register("lane-slider", LaneSliderController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
