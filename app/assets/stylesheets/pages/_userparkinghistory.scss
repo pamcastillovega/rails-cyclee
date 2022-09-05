@@ -23,7 +23,35 @@ padding: 20px;
  margin: 200px 10px;
 }
 
-
 .user-container .cyclee-history {
   margin: 400px 0px;
+}
+
+// reference
+.cyclee-card-contents {
+  display: flex;
+  padding: 16px;
+  height: auto;
+  .cyclee-card-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 16px;
+    p {
+      margin: 0;
+    }
+    img {
+      border-radius: 50%;
+      width: 57px;
+      height: 57px;
+    }
+  }
+  .text-content {
+    font-size: 14px;
+    line-height: 18px;
+    p {
+      margin-bottom: 8px;
+    }
+  }
 }
