@@ -121,6 +121,7 @@ export default class extends Controller {
       });
 
     e.target.on('click', 'test', (e) => {
+      console.log(e.features);
       const objectID = e.features[0].properties.OBJECTID
       // update()
       // console.log(objectID);

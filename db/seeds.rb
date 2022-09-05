@@ -1,17 +1,11 @@
-# require_relative 'seed_lanes'
-
-# seed_lanes
-
 file = File.join(__dir__, 'rafi.json')
 lane_data = File.read(file)
 lanes = JSON.parse(lane_data)
-
 
 USER_TYPES = %w[Sport Delivery Commuter]
 LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
 
 puts 'Cleaning up database'
-
 User.destroy_all
 Lane.destroy_all
 Review.destroy_all
@@ -113,22 +107,22 @@ Review.create(
 puts 'Review created'
 
 address1 = ParkingLocation.create(
-  address: '3685 Bay Street',
+  address: '3685 Bay Street'
 )
 puts 'Parking Location created'
 
 address2 = ParkingLocation.create(
-  address: '3657 Eagle Rd',
+  address: '3657 Eagle Rd'
 )
 puts 'Parking Location created'
 
 address3 = ParkingLocation.create(
-  address: '4319 Dufferin Street',
+  address: '4319 Dufferin Street'
 )
 puts 'Parking Location created'
 
 address4 = ParkingLocation.create(
-  address: '401 Tycos Dr',
+  address: '401 Tycos Dr'
 )
 puts 'Parking Location created'
 
@@ -138,7 +132,7 @@ ph1 = ParkingHistory.create(
 )
 puts 'Parking History created'
 
-ph2 = ParkingHistory.create(
+ParkingHistory.create(
   parking_location: address2,
   user: user_anna
 )
@@ -150,7 +144,7 @@ ph3 = ParkingHistory.create(
 )
 puts 'Parking History created'
 
-ph4 = ParkingHistory.create(
+ParkingHistory.create(
   parking_location: address4,
   user: user_alex
 )
@@ -163,6 +157,7 @@ Report.create(
   time: '13:00',
   comment: 'Someone stole my pedals wtf'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: ph1.parking_location,
@@ -171,6 +166,7 @@ Report.create(
   time: '13:00',
   comment: 'Someone stole my pedals wtf'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: ph1.parking_location,
@@ -179,6 +175,7 @@ Report.create(
   time: '13:00',
   comment: 'Someone stole my pedals wtf'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: ph1.parking_location,
@@ -187,6 +184,7 @@ Report.create(
   time: '13:00',
   comment: 'Someone stole my pedals wtf'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: ph3.parking_location,
@@ -195,6 +193,7 @@ Report.create(
   time: '15:00',
   comment: 'Crazy man asking me to join his MLM business'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: address2,
@@ -203,6 +202,7 @@ Report.create(
   time: '17:00',
   comment: 'Saw someone touching bike chains and sniffing'
 )
+puts 'Report created'
 
 Report.create(
   parking_location: address4,
@@ -211,9 +211,16 @@ Report.create(
   time: '19:00',
   comment: 'Saw Michael Myers lurking in that area yikes'
 )
+puts 'Report created'
 
 lanes["features"].each do |lane|
-  Lane.create(coordinates: lane["geometry"]["coordinates"].first, name: lane["properties"]["STREET_NAME"], lane_type: lane["properties"]["INFRA_HIGHORDER"], objectid: lane["properties"]["OBJECTID"] )
+  Lane.create(
+    coordinates: lane["geometry"]["coordinates"].first,
+    name: lane["properties"]["STREET_NAME"],
+    lane_type: lane["properties"]["INFRA_HIGHORDER"],
+    objectid: lane["properties"]["OBJECTID"]
+  )
+  puts 'Lanes created'
 end
 
 puts 'Finished!'
