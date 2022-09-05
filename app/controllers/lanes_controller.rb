@@ -16,7 +16,7 @@ class LanesController < ApplicationController
 
   def show
     @lane = Lane.find_by(objectid: params[:id])
-    @reviews = @lane.reviews
+    @reviews = @lane.reviews.reverse
     @ratings = []
     @reviews.each do |review|
       @ratings << review.rating
