@@ -1,19 +1,16 @@
 #map {
   z-index: -1;
   .slider-wrap {
+    border: solid 1px blue;
     z-index: 2;
-    // height: 40vh;
-    height: 100vh;
     position: fixed;
     bottom: 0;
+    height: 100vh;
     overflow: scroll;
-    padding-top: 600px;
-    padding-bottom: 60px;
+    padding: 500px 0 60px 0;
     .lane-container {
       padding-top: 5px;
       background-color: white;
-      // position: absolute;
-      // top: 0;
     }
   }
 }

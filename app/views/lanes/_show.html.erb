@@ -1,7 +1,7 @@
-<div class="lane-container" data-controller="lane-slider">
+<div class="lane-container"
+      data-lane-slider-target="container">
   <div class="bar"
-        data-action="click->lane-slider#slide"
-        data-lane-slider-target="bar"></div>
+        data-action="click->lane-slider#slide"></div>
   <div class="lane-wrap">
     <div class="cyclee-lane cyclee-big
       <% if @avgrating.zero? %>
