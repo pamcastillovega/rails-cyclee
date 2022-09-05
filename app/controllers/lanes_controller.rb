@@ -9,6 +9,7 @@ class LanesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
+        id: location.id,
         info_window: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
@@ -16,7 +17,7 @@ class LanesController < ApplicationController
 
   def show
     @lane = Lane.find_by(objectid: params[:id])
-    @reviews = @lane.reviews
+    @reviews = @lane.reviews.reverse
     @ratings = []
     @reviews.each do |review|
       @ratings << review.rating

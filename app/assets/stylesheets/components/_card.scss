@@ -6,6 +6,7 @@
   // border: 1px solid $c-red;
   display: flex;
   background-color: rgba(255, 255, 255, 0.7);
+  // background-color: #ffffff;
   box-shadow: 1px 1px 1px 1px;
   .fa-flag {
     padding: 40px 24px;
@@ -42,6 +43,7 @@
     display: flex;
     padding: 16px;
     height: auto;
+    background-color: #ffffff;
     .cyclee-card-user {
       display: flex;
       flex-direction: column;

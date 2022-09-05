@@ -1,25 +1,30 @@
 #map {
-  height: 100%;
-}
-
-.listing-container {
-  z-index: 1;
-  background-color: white;
-  height: 60%;
-  padding: 20px 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  overflow: scroll;
-  .bar {
-    width: 80px;
-    height: 5px;
-    border-radius: 4px;
-    background-color: $c-lightgray;
-    margin: auto;
+  z-index: -1;
+  .slider-wrap {
+    z-index: 2;
+    // height: 40vh;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    overflow: scroll;
+    padding-top: 600px;
+    padding-bottom: 60px;
+    .lane-container {
+      padding-top: 5px;
+      background-color: white;
+      // position: absolute;
+      // top: 0;
+    }
   }
 }
 
+.bar {
+  width: 80px;
+  height: 5px;
+  border-radius: 4px;
+  background-color: $c-lightgray;
+  margin: auto;
+}
 .lane-wrap {
   margin: 40px 10px;
   .lane-type, .lane-rating {
@@ -28,6 +33,6 @@
   }
 }
 
-.review-wrap {
-  margin-bottom: 50px;
+.cyclee-map-toggle {
+  z-index: 1;
 }

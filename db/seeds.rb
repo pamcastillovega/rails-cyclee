@@ -50,79 +50,38 @@ user_alex = User.create(
 )
 puts 'Created user'
 
-# lane1 = Lane.create(
-#   name: 'Lane 1',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane2 = Lane.create(
-#   name: 'Lane 2',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane3 = Lane.create(
-#   name: 'Lane 3',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane4 = Lane.create(
-#   name: 'Lane 4',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane1,
-#   user: user_bob,
-#   comment: 'Had such a fun time cycling thru this route!! Highly recommend!'
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane2,
-#   user: user_anna,
-#   comment: "Homeless people galore, do not like. Please don't @ me."
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane3,
-#   user: user_yc,
-#   comment: "I'm fine with the event happening around this path but it can't be disrupting if you want peace and quiet."
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane4,
-#   user: user_alex,
-#   comment: "Path is FULL of holes do not recommend."
-# )
-# puts 'Review created'
-
 address1 = ParkingLocation.create(
-  address: '3685 Bay Street'
+  address: '288 Queen St W, Toronto, ON M5V 2A4, Canada'
 )
 puts 'Parking Location created'
 
 address2 = ParkingLocation.create(
-  address: '3657 Eagle Rd'
+  address: '70 Lynn Williams St, Toronto, ON M6K 3N6, Canada'
 )
 puts 'Parking Location created'
 
 address3 = ParkingLocation.create(
-  address: '4319 Dufferin Street'
+  address: '20 Sudbury St, Toronto, ON M6J 3S7, Canada'
 )
 puts 'Parking Location created'
 
 address4 = ParkingLocation.create(
-  address: '401 Tycos Dr'
+  address: '100 Harbord St, Toronto, ON M5S 1G6, Canada'
+)
+puts 'Parking Location created'
+
+address5 = ParkingLocation.create(
+  address: '180 Wellington St W, Toronto, ON M5J 1J1, Canada'
+)
+puts 'Parking Location created'
+
+address6 = ParkingLocation.create(
+  address: '1526 Queen St W, Toronto, ON M6R 1A4, Canada'
+)
+puts 'Parking Location created'
+
+address7 = ParkingLocation.create(
+  address: '106 Broadview Ave, Toronto, ON M4M 2G1, Canada'
 )
 puts 'Parking Location created'
 
@@ -213,14 +172,23 @@ Report.create(
 )
 puts 'Report created'
 
+USERS = [user_bob, user_anna, user_yc, user_alex]
+
 lanes["features"].each do |lane|
-  Lane.create(
+  lane_obj = Lane.create(
     coordinates: lane["geometry"]["coordinates"].first,
     name: lane["properties"]["STREET_NAME"],
     lane_type: lane["properties"]["INFRA_HIGHORDER"],
     objectid: lane["properties"]["OBJECTID"]
   )
-  puts 'Lanes created'
+  puts 'Lane created'
+  Review.create(
+    rating: rand(5),
+    lane: lane_obj,
+    user: USERS.sample,
+    comment: "What an interesting bike lane. Very interesting indeed."
+  )
+  puts 'Review created'
 end
 
 puts 'Finished!'
