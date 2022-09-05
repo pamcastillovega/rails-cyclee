@@ -51,22 +51,37 @@ user_alex = User.create(
 puts 'Created user'
 
 address1 = ParkingLocation.create(
-  address: '3685 Bay Street'
+  address: '288 Queen St W, Toronto, ON M5V 2A4, Canada'
 )
 puts 'Parking Location created'
 
 address2 = ParkingLocation.create(
-  address: '3657 Eagle Rd'
+  address: '70 Lynn Williams St, Toronto, ON M6K 3N6, Canada'
 )
 puts 'Parking Location created'
 
 address3 = ParkingLocation.create(
-  address: '4319 Dufferin Street'
+  address: '20 Sudbury St, Toronto, ON M6J 3S7, Canada'
 )
 puts 'Parking Location created'
 
 address4 = ParkingLocation.create(
-  address: '401 Tycos Dr'
+  address: '100 Harbord St, Toronto, ON M5S 1G6, Canada'
+)
+puts 'Parking Location created'
+
+address5 = ParkingLocation.create(
+  address: '180 Wellington St W, Toronto, ON M5J 1J1, Canada'
+)
+puts 'Parking Location created'
+
+address6 = ParkingLocation.create(
+  address: '1526 Queen St W, Toronto, ON M6R 1A4, Canada'
+)
+puts 'Parking Location created'
+
+address7 = ParkingLocation.create(
+  address: '106 Broadview Ave, Toronto, ON M4M 2G1, Canada'
 )
 puts 'Parking Location created'
 
