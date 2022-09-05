@@ -1,2 +1,49 @@
-<h1>yo</h1>
-<%= button_to "Sign Out", destroy_user_session_path %>
+<div class="user-container">
+
+<div class="user-profile-contents">
+<p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
+<div class="text-content">
+<p><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
+</div>
+</div>
+
+<p>Parking Location: </p>
+<p><%= current_user.parking_histories.last.parking_location.address %></p>
+
+<div data-controller="map"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-objectID-value="">
+    <div id="map" style="width: 300px; height: 300px;"
+      data-map-target="wrapper"></div>
+    <div class="cyclee-map-toggle">
+      <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
+    </div>
+    <div data-map-target="lanepartial">
+    </div>
+</div>
+
+
+<% current_user.parking_histories.each do |history| %>
+<% if history.parking_location.reports.present?%>
+<div class="cyclee-history">
+  <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
+  <div class="cyclee-history-content">
+<% current_user.parking_histories.each do |history| %>
+<p><%= history.parking_location.address %></p>
+<p><%= history.created_at %></p>
+  <% end %>
+<% else %>
+<div class="cyclee-history">
+  <i class="fa-solid fa-map-pin fa-2xl"></i>
+  <div class="cyclee-history-content">
+<% current_user.parking_histories.each do |history| %>
+<p><%= history.parking_location.address %></p>
+<p><%= history.created_at %></p>
+    <% end %>
+  <% end %>
+<% end %>
+  </div>
+</div>
+
+
+</div>
