@@ -9,6 +9,7 @@ class LanesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude,
+        id: location.id,
         info_window: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
