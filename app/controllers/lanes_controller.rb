@@ -15,7 +15,7 @@ class LanesController < ApplicationController
   end
 
   def show
-    @lane = params[:objectid].present? ? Lane.find_by(objectid: params[:id]) : Lane.find(params[:id])
+    @lane = Lane.find_by(objectid: params[:id])
     @reviews = @lane.reviews
     @ratings = []
     @reviews.each do |review|

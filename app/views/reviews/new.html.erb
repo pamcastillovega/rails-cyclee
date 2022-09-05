@@ -1,6 +1,6 @@
 <div class="container">
   <div class="cyclee-lane cyclee-big
-    <% if @avgrating.zero? %>
+    <% if @avgrating.nil? %>
       <%= 'cyclee-grey' %>
     <% elsif @avgrating <= 2 %>
       <%= 'cyclee-red' %>

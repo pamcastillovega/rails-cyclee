@@ -15,8 +15,8 @@
         <i class="fa-solid fa-angle-right fa-xl"></i>
     </div>
     <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
-    <p class="lane-rating"><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
-    <%= link_to "Review", new_lane_review_path(@lane), class: "btn btn-cyclee3" %>
+    <p><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
+    <%= link_to "Review", new_lane_review_path(@lane, objectid: @lane.objectid), class: "btn btn-cyclee3" %>
   </div>
 
   <% @reviews.each do |review| %>
