@@ -1,56 +1,66 @@
 <div class="user-container">
 
-<% if current_user.present? %>
+  <% if current_user.present? %>
 
-<div class="user-profile-contents">
-<p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
-<div class="text-content">
-<p><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
-</div>
-</div>
-
-<p>Parking Location: </p>
-<%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %>
-
-<div data-controller="map"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-map-objectID-value="">
-    <div id="map" style="width: 300px; height: 300px;"
-      data-map-target="wrapper"></div>
-    <div class="cyclee-map-toggle">
-      <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
+  <div class="user-profile-contents">
+    <div class="cyclee-profile-user">
+      <p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
     </div>
-    <div data-map-target="lanepartial">
+    <div class="text-profile">
+      <p><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
     </div>
-</div>
-
-<% if current_user.parking_histories.present? %>
-<% current_user.parking_histories.each do |history| %>
-<% if history.parking_location.reports.present?%>
-<div class="cyclee-history">
-  <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
-  <div class="cyclee-history-content">
-<% current_user.parking_histories.each do |history| %>
-<p><%= history.parking_location.address %></p>
-<p><%= history.created_at %></p>
-  <% end %>
-<% else %>
-<div class="cyclee-history">
-  <i class="fa-solid fa-map-pin fa-2xl"></i>
-  <div class="cyclee-history-content">
-<% current_user.parking_histories.each do |history| %>
-<p><%= history.parking_location.address %></p>
-<p><%= history.created_at %></p>
-    <% end %>
-  <% end %>
-<% end %>
-<% else %>
- <p>There is no current parking history</p>
   </div>
-</div>
-<% end %>
-<% else %>
-<% redirect_to new_user_session_path %>
-<% end %>
 
+  <div class="location-text">
+    <p>Where I’m parked: </p>
+    <h2><strong><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></strong></h2>
+  </div>
+
+  <div data-controller="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-objectID-value="">
+      <div id="map" style="width: 350px; height: 300px;"
+        data-map-target="wrapper"></div>
+      <div class="cyclee-map-toggle">
+        <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
+      </div>
+      <div data-map-target="lanepartial">
+      </div>
+  </div>
+
+  <div class="hist-text">
+    <p>Parking History: </p>
+  </div>
+
+  <div class="user-list">
+    <% if current_user.parking_histories.present? %>
+    <% current_user.parking_histories.each do |history| %>
+    <% if history.parking_location.reports.present?%>
+    <div class="cyclee-history">
+      <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
+      <div class="cyclee-history-content">
+    <% current_user.parking_histories.each do |history| %>
+    <p><%= history.parking_location.address %></p>
+    <p><%= history.created_at %></p>
+      <% end %>
+    <% else %>
+    <div class="cyclee-history">
+      <i class="fa-solid fa-map-pin fa-2xl"></i>
+      <div class="cyclee-history-content">
+    <% current_user.parking_histories.each do |history| %>
+    <p><%= history.parking_location.address %></p>
+    <p><%= history.created_at %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% else %>
+    <p>There is no current parking history</p>
+      </div>
+    </div>
+    <% end %>
+    <% else %>
+    <% redirect_to new_user_session_path %>
+    <% end %>
+    </div>
+  </div>
 </div>
