@@ -1,5 +1,7 @@
 <div class="user-container">
 
+<% if current_user.present? %>
+
 <div class="user-profile-contents">
 <p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
 <div class="text-content">
@@ -8,7 +10,7 @@
 </div>
 
 <p>Parking Location: </p>
-<p><%= current_user.parking_histories.last.parking_location.address %></p>
+<%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %>
 
 <div data-controller="map"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -22,7 +24,7 @@
     </div>
 </div>
 
-
+<% if current_user.parking_histories.present? %>
 <% current_user.parking_histories.each do |history| %>
 <% if history.parking_location.reports.present?%>
 <div class="cyclee-history">
@@ -42,8 +44,13 @@
     <% end %>
   <% end %>
 <% end %>
+<% else %>
+ <p>There is no current parking history</p>
   </div>
 </div>
-
+<% end %>
+<% else %>
+<% redirect_to new_user_session_path %>
+<% end %>
 
 </div>
