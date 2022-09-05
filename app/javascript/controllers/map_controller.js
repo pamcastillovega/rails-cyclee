@@ -85,7 +85,7 @@ export default class extends Controller {
     // }
     // });
 
-      e.target.addSource('test', {
+      e.target.addSource('full', {
         'type': 'geojson',
         'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
       });
@@ -106,9 +106,9 @@ export default class extends Controller {
       // });
 
       e.target.addLayer({
-        'id': 'test',
+        'id': 'full',
         'type': 'line',
-        'source': 'test',
+        'source': 'full',
         'layout': {
         'line-join': 'round',
         'line-cap': 'round'
