@@ -8,9 +8,7 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     markers: Array,
-    lanesName: String,
     lanesCoordinates: Array,
-    objectID: String
   }
 
   connect() {
@@ -57,6 +55,16 @@ export default class extends Controller {
         .setPopup(popup)
         .addTo(this.map)
       currentMarkers.push(oneMarker)
+      popup.on('open', (event) => {
+        console.log(marker.id);
+        const url = `/parking_locations/${marker.id}/reports`
+        fetch(url, {headers: {"Accept": "text/plain"}})
+        .then(response => response.text())
+        .then((data) => {
+          this.lanepartialTarget.innerHTML = data
+        })
+
+        });
     })
   }
 

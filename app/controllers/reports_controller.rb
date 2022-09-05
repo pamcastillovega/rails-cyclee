@@ -5,6 +5,10 @@ class ReportsController < ApplicationController
     @parking_location = ParkingLocation.find(params[:parking_location_id])
     @reports = @parking_location.reports.reverse
     @report = Report.new
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "reports/index", locals: { report: @report, reports: @reports, parking_location: @parking_location }, formats: [:html] }
+    end
   end
 
   def new
