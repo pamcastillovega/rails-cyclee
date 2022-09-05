@@ -1,6 +1,7 @@
 <div class="cyclee-card">
   <div class="cyclee-card-image">
-    <%= image_tag "bike-lane.jpeg" %>
+    <%# <%= image_tag "bike-lane.jpeg" %>
+    <%= review.photo.present? ? (cl_image_tag review.photo.key, crop: :fill) : (image_tag "bike-lane.jpeg", crop: :fill) %>
   </div>
   <div class="cyclee-card-contents">
     <div class="cyclee-card-user">

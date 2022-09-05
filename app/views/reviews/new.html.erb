@@ -21,7 +21,8 @@
         <%= f.input :comment, class: "comment" %>
       </div>
       <div class="input-wrap">
-        <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "upload" %>
+        <%# <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "upload" %>
+        <%= f.input :photo, as: :file, class: "upload" %>
       </div>
       <div class="input-wrap">
         <%= f.submit 'Submit', class: "btn btn-cyclee2" %>
