@@ -50,62 +50,6 @@ user_alex = User.create(
 )
 puts 'Created user'
 
-# lane1 = Lane.create(
-#   name: 'Lane 1',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane2 = Lane.create(
-#   name: 'Lane 2',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane3 = Lane.create(
-#   name: 'Lane 3',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# lane4 = Lane.create(
-#   name: 'Lane 4',
-#   lane_type: LANE_TYPES.sample
-# )
-# puts 'Created lane'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane1,
-#   user: user_bob,
-#   comment: 'Had such a fun time cycling thru this route!! Highly recommend!'
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane2,
-#   user: user_anna,
-#   comment: "Homeless people galore, do not like. Please don't @ me."
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane3,
-#   user: user_yc,
-#   comment: "I'm fine with the event happening around this path but it can't be disrupting if you want peace and quiet."
-# )
-# puts 'Review created'
-
-# Review.create(
-#   rating: rand(5),
-#   lane: lane4,
-#   user: user_alex,
-#   comment: "Path is FULL of holes do not recommend."
-# )
-# puts 'Review created'
-
 address1 = ParkingLocation.create(
   address: '3685 Bay Street'
 )
@@ -213,14 +157,23 @@ Report.create(
 )
 puts 'Report created'
 
+USERS = [user_bob, user_anna, user_yc, user_alex]
+
 lanes["features"].each do |lane|
-  Lane.create(
+  lane_obj = Lane.create(
     coordinates: lane["geometry"]["coordinates"].first,
     name: lane["properties"]["STREET_NAME"],
     lane_type: lane["properties"]["INFRA_HIGHORDER"],
     objectid: lane["properties"]["OBJECTID"]
   )
-  puts 'Lanes created'
+  puts 'Lane created'
+  Review.create(
+    rating: rand(5),
+    lane: lane_obj,
+    user: USERS.sample,
+    comment: "What an interesting bike lane. Very interesting indeed."
+  )
+  puts 'Review created'
 end
 
 puts 'Finished!'
