@@ -4,14 +4,11 @@
       <div class="slider-toggle" data-action="click->slider#slideToggle"></div>
     </div>
     <div class="parking-wrap">
-      <div class="cyclee-card-image report-index d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('
-      <%= (cl_image_path @parking_location.photo.key, crop: :fill) if @parking_location.photo.present? %>')">
-        <div class="cyclee-report-card-address report-index">
-          <i class="fa-solid fa-square-parking"></i>
-          <div class="cyclee-report-card-title">
-            <p class="m-0 address"><%= @parking_location.address %></p>
-            <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
-          </div>
+      <div class="cyclee-report-card-address report-index">
+        <i class="fa-solid fa-square-parking"></i>
+        <div class="cyclee-report-card-title">
+          <p class="m-0 address"><%= @parking_location.address %></p>
+          <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
         </div>
       </div>
       <div class="report-buttons">
@@ -28,6 +25,5 @@
 
   </div>
 </div>
-
 
 <%= render "shared/footer" %>

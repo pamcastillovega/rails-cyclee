@@ -14,28 +14,19 @@
   }
 }
 
+.report-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .address {
   font-size: 18px;
   font-weight: bold;
 }
+
 .incidents {
   margin-top: 10px;
   font-size: 16px;
-}
-
-.report-buttons {
-  display: flex;
-  height: 100px;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-
-// .parking-wrap {
-//   border: solid 1px red;
-// }
-
-.review-wrap {
-  // border: solid 1px red;
-  width: 100%;
 }

@@ -1,9 +1,7 @@
 <div class="cyclee-card">
   <div class="cyclee-card-image">
-
     <%= review.photo.present? ? (cl_image_tag review.photo.key, crop: :fill) : (image_tag "greenlane.png", crop: :fill) %>
   </div>
-
   <div class="cyclee-card-contents">
     <div class="cyclee-card-user">
       <%= image_tag "logo.png" %>
@@ -16,7 +14,3 @@
     </div>
   </div>
 </div>
-
-
-
-<%# --- %>
