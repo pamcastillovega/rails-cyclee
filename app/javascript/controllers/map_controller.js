@@ -49,22 +49,23 @@ export default class extends Controller {
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       let oneMarker = new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(this.map)
       currentMarkers.push(oneMarker)
-      popup.on('open', (event) => {
-        console.log(marker.id);
+      oneMarker.getElement().addEventListener('click', () => {
         const url = `/parking_locations/${marker.id}/reports`
         fetch(url, {headers: {"Accept": "text/plain"}})
         .then(response => response.text())
         .then((data) => {
           this.lanepartialTarget.innerHTML = data
         })
-
-        });
+      });
+      // popup.on('open', (event) => {
+      //   console.log(marker.id);
+      // });
     })
   }
 
