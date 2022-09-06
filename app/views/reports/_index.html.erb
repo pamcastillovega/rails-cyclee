@@ -1,22 +1,29 @@
-<div class="cyclee-card-image report-index d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('
-<%= (cl_image_path @parking_location.photo.key, crop: :fill) if @parking_location.photo.present? %>
-')">
-  <div class="cyclee-report-card-address report-index">
-    <i class="fa-solid fa-flag fa-2x"></i>
-    <div class="cyclee-report-card-title">
-      <h2 class="m-0"><%= @parking_location.address %></h2>
-      <p><%= @reports.count %> reported incidents of theft or damage.</p>
+<div class="slider-wrap" data-controller="slider" data-slider-target="wrap">
+  <div class="container">
+    <div class="toggle-wrap">
+      <div class="slider-toggle" data-action="click->slider#slideToggle"></div>
     </div>
+    <div class="parking-wrap">
+      <div class="cyclee-report-card-address report-index">
+        <i class="fa-solid fa-square-parking"></i>
+        <div class="cyclee-report-card-title">
+          <p class="m-0 address"><%= @parking_location.address %></p>
+          <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
+        </div>
+      </div>
+      <div class="report-buttons">
+        <%= link_to "Report", new_parking_location_report_path(@parking_location), class: "btn btn-cyclee1" %>
+        <%= link_to "Park", new_parking_location_parking_history_path(@parking_location), class: "btn btn-cyclee2" %>
+      </div>
+    </div>
+
+    <div class="review-wrap">
+      <% @reports.each do |report| %>
+        <%= render "shared/reportcard", report: report %>
+      <% end %>
+    </div>
+
   </div>
 </div>
-
-<div class="report-buttons">
-  <%= link_to "Report", new_parking_location_report_path(@parking_location), class: "btn btn-cyclee1" %>
-  <%= link_to "Park", new_parking_location_parking_history_path(@parking_location), class: "btn btn-cyclee2" %>
-</div>
-
-<% @reports.each do |report| %>
-  <%= render "shared/reportcard", report: report %>
-<% end %>
 
 <%= render "shared/footer" %>
