@@ -2,16 +2,14 @@
   <div class="cyclee-card-image">
     <%= report.photo.present? ? (cl_image_tag report.photo.key, crop: :fill) : (image_tag "greenlane.png", crop: :fill) %>
   </div>
-
-
   <div class="cyclee-card-contents">
     <div class="cyclee-card-user">
       <%= image_tag "logo.png" %>
-      <p><strong><%= report.user.first_name %> <%= report.user.last_name %></strong></p>
-      <p><%= report.date %></p>
-      <p><%= report.time.strftime('%H:%M') %></p>
     </div>
-    <p class="text-content"><%= report.comment %></p>
+    <div class="text-content">
+      <p><strong><%= report.user.first_name %> <%= report.user.last_name %></strong></p>
+      <p class="incident"><%= report.date %></p>
+      <p class="text-content"><%= report.comment %></p>
+    </div>
   </div>
-
 </div>

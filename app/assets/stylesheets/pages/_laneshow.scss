@@ -23,6 +23,7 @@
 .toggle-wrap {
   border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
   .slider-toggle {
+    // border: solid 1px blue;
     width: 70px;
     height: 5px;
     border-radius: 4px;
@@ -40,4 +41,8 @@
       padding: 0;
     }
   }
+}
+
+.cyclee-map-add {
+  z-index: 1;
 }

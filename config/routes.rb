@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   end
 
+  resources :parking_locations
+
   resources :parking_locations do
     resources :reports, only: %i[index new create]
     resources :parking_histories, only: %i[new create]

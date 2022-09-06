@@ -21,3 +21,6 @@ application.register("slider", SliderController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import LocationButtonController from "./location_button_controller"
+application.register("location-button", LocationButtonController)
