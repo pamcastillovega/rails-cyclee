@@ -1,0 +1,5 @@
+<h2>Update your Avatar Photo</h2>
+<%= simple_form_for(current_user) do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Submit Photo", class: "btn btn-cyclee2" %>
+  <% end %>

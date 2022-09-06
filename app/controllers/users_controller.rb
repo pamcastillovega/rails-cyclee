@@ -3,10 +3,21 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
 
-private
+  def update
+    @user = current_user
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user)
+  end
 
+  private
 
-
+  def user_params
+    params.require(:user).permit(:photo)
+  end
 
 end
