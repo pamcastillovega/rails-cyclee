@@ -1,24 +1,14 @@
 .cyclee-report-card-address {
-  width: 350px;
-  height: 130px;
-  background: transparent;
-  border-radius: 5px;
-  // border: 1px solid $c-red;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.7);
-  // background-color: #ffffff;
-  box-shadow: 1px 1px 1px 1px;
-  .fa-flag {
-    padding: 40px 24px;
+  margin: 20px;
+  .fa-square-parking {
     color: $c-red;
+    font-size: 40px;
   }
   .cyclee-report-card-title {
-    padding: 24px 0;
-    h2 {
-      font-weight: bold;
-    }
+    margin-left: 20px;
     p {
-      font-size: 16px;
+      color: $c-darkgray;
     }
   }
 }
