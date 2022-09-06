@@ -53,9 +53,9 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      // customMarker.style.backgroundSize = "cover"
-      // customMarker.style.width = "25px"
-      // customMarker.style.height = "25px"
+      if(marker.flagged == true) {
+        customMarker.classList.add("marker-red");
+      }
 
       let oneMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
@@ -137,7 +137,6 @@ export default class extends Controller {
       });
 
     e.target.on('click', 'full', (e) => {
-      console.log(e.features);
       const objectID = e.features[0].properties.OBJECTID
       // update()
       // console.log(objectID);

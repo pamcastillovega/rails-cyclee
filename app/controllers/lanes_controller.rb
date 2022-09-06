@@ -6,13 +6,24 @@ class LanesController < ApplicationController
     @lane = Lane.last
     @parkinglocations = ParkingLocation.all
     @markers = @parkinglocations.geocoded.map do |location|
-      {
-        lat: location.latitude,
-        lng: location.longitude,
-        id: location.id,
-        image_url: helpers.asset_url("square-parking-solid.svg")
-        # info_window: render_to_string(partial: "info_window", locals: { location: location })
-      }
+      if location.reports.present?
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          id: location.id,
+          image_url: helpers.asset_url("square-parking-solid.svg"),
+          flagged: true
+          # info_window: render_to_string(partial: "info_window", locals: { location: location })
+        }
+      else
+        {
+          lat: location.latitude,
+          lng: location.longitude,
+          id: location.id,
+          image_url: helpers.asset_url("square-parking-solid.svg")
+          # info_window: render_to_string(partial: "info_window", locals: { location: location })
+        }
+      end
     end
   end
 
