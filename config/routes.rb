@@ -13,8 +13,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-
   resources :users do
     resources :parking_histories, only: %i[show]
 
