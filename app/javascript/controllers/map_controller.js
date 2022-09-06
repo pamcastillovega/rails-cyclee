@@ -93,9 +93,9 @@ export default class extends Controller {
     // }
     // });
 
-      e.target.addSource('test', {
+      e.target.addSource('full', {
         'type': 'geojson',
-        'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+        'data': 'https://lionheartsg.github.io/data/test2.geojson'
       });
 
       // e.target.addLayer({
@@ -114,21 +114,21 @@ export default class extends Controller {
       // });
 
       e.target.addLayer({
-        'id': 'test',
+        'id': 'full',
         'type': 'line',
-        'source': 'test',
+        'source': 'full',
         'layout': {
         'line-join': 'round',
         'line-cap': 'round'
       },
         'paint': {
-        'line-color': '#888',
+        'line-color': ['get', 'color'],
         'line-width': 3
         }
 
       });
 
-    e.target.on('click', 'test', (e) => {
+    e.target.on('click', 'full', (e) => {
       console.log(e.features);
       const objectID = e.features[0].properties.OBJECTID
       // update()
