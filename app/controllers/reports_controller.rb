@@ -2,6 +2,7 @@ class ReportsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index new]
 
   def index
+    @parkinghistory = ParkingHistory.new
     @parking_location = ParkingLocation.find(params[:parking_location_id])
     @reports = @parking_location.reports.reverse
     @report = Report.new

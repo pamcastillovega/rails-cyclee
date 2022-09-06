@@ -7,8 +7,8 @@
     height: 210px;
     width: 100%;
     transition: all .3s ease-out;
-    padding-bottom: 70px;
-    .lane-container {
+    padding-bottom: 50px;
+    .container {
       background-color: white;
       border-radius: 8px;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -19,6 +19,7 @@
     transition: all .3s ease-out;
   }
 }
+
 
 .toggle-wrap {
   border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
