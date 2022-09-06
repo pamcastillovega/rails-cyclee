@@ -1,4 +1,17 @@
 <p> Pin a new parking spot: </p>
+
+<div>
+<button class="btn btn-cyclee3" data-controller="location-button" data-action="click->location-button#show">
+Get Current Location!
+</button>
+<p class="d-none" data-location-button-target="content">
+</div>
+
+<%= link_to "Create", new_parking_location_path(@parking_location), class: "btn btn-cyclee2" %>
+
+<%= render "shared/footer" %>
+
+
+<%# -- %>
 <%# <%= link_to "Get Current Location", root_path, class: "btn btn-cyclee3" %>
-<br>
- <%# <%= link_to "Create", new_parking_location(parking_location), class: "btn btn-cyclee2" %>
+<%# <%= current_user.parking_histories.last.parking_location.address %>
