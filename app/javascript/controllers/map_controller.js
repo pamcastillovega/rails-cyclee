@@ -4,7 +4,7 @@ let currentMarkers = []
 
 export default class extends Controller {
 
-  static targets = ['wrapper', 'lanepartial']
+  static targets = ['wrapper', 'lanepartial', 'parker']
   static values = {
     apiKey: String,
     markers: Array,
@@ -44,8 +44,20 @@ export default class extends Controller {
     this.addMarkersToMap()
     this.map.addControl(this.directions, 'top-left')
     this.map.addControl(this.location, 'top-right')
+
   }
 
+  addParkingToMap() {
+    this.location.on('geolocate', (e) => {
+      console.log(e.coords);
+      this.parkingmap = new mapboxgl.Map({
+        container: this.parkerTarget,
+        style: "mapbox://styles/mapbox/light-v10",
+        center: [e.coords],
+        zoom: 12
+      })
+    });
+  }
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
