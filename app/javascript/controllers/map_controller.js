@@ -79,6 +79,11 @@ export default class extends Controller {
     }
   }
 
+  add(e) {
+
+  }
+
+
     loadRoutes(e) {
 
     //   e.target.addSource('route', {

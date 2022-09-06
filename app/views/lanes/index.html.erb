@@ -10,7 +10,12 @@
     </div>
     <div class="cyclee-map-toggle">
       <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
-  </div>
+    </div>
+    <div class="cyclee-map-add">
+      <%= link_to new_parking_location_path(@parking_location) do %>
+      <i class="fa-solid fa-plus fa-2xl" data-show-markers="true" data-action="click->map#add"></i>
+      <% end %>
+    </div>
   </div>
 </div>
 
