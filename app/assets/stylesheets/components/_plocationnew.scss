@@ -15,31 +15,35 @@
 //     }
 //   }
 // }
-.container.location-new {
-  form {
+#location-new {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form#new_parking_location {
     label {
       display: none;
+      width: 350px;
     }
     input {
       border: 1px solid $c-darkgray;
       height: 45px;
-      padding-left: 4px;
-      margin-left: 2px;
+      padding-left: 40px !important;
+      padding-right: 0px !important;
       border-radius: 5px;
-      width: 100%;
-    }
-    .parking_location_address {
-      display: flex;
-      justify-content: center;
+      width: 350px;
+      border: none;
+      margin-left: 20px
     }
     .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-      width: 100%;
-      margin: 0 !important;
+      margin: 20px !important;
+      border-radius: 5px;
       svg {
         top: 12px;
       }
-      input {
-        padding-left: 35px;
+      div {
+        width: 350px;
       }
     }
   }
