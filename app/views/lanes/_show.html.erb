@@ -1,7 +1,7 @@
-<div class="lane-container"
-      data-lane-slider-target="container">
-  <div class="bar"
-        data-action="click->lane-slider#slide"></div>
+<div class="lane-container">
+  <div class="toggle-wrap">
+    <div class="slider-toggle" data-action="click->slider#slideToggle"></div>
+  </div>
   <div class="lane-wrap">
     <div class="cyclee-lane cyclee-big
       <% if @avgrating.zero? %>
@@ -16,8 +16,10 @@
         <p><%= @lane.name %></p>
         <i class="fa-solid fa-angle-right fa-xl"></i>
     </div>
-    <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
-    <p class="lane-rating"><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
+    <div class="lane-details">
+      <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
+      <p class="lane-rating"><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
+    </div>
     <%= link_to "Review", new_lane_review_path(@lane, objectid: @lane.objectid), class: "btn btn-cyclee3" %>
   </div>
 
