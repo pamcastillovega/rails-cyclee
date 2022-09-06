@@ -1,4 +1,4 @@
-<div class="lane-container">
+<div class="container">
   <div class="toggle-wrap">
     <div class="slider-toggle" data-action="click->slider#slideToggle"></div>
   </div>
@@ -22,9 +22,7 @@
     </div>
     <%= link_to "Review", new_lane_review_path(@lane, objectid: @lane.objectid), class: "btn btn-cyclee3" %>
   </div>
-
   <% @reviews.each do |review| %>
     <%= render "shared/lanereviewcard", user: review.user, review: review, lane: @lane %>
   <% end %>
-
 </div>

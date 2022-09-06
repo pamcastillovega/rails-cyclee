@@ -5,13 +5,11 @@
   data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
   data-map-objectID-value="">
   <div id="map" data-map-target="wrapper">
-    <div class="slider-wrap"
-          data-controller="slider"
-          data-slider-target="wrap">
+    <div class="slider-wrap" data-controller="slider" data-slider-target="wrap">
       <div class="cyclee-map-toggle">
         <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
       </div>
-      <div class="lane-container" data-map-target="lanepartial"></div>
+      <div class="container" data-map-target="lanepartial"></div>
     </div>
   </div>
 </div>
