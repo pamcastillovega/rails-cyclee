@@ -25,8 +25,9 @@
   justify-content: center;
   align-items: center;
   background-color: $c-darkgray;
+  line-height: 18px;
   &:hover {
-    background-color: transparent;
+    background-color: white;
     color: $c-darkgray;
   }
 }
@@ -44,5 +45,23 @@
   &:hover {
     background-color: #616161;
     color: white;
+  }
+}
+
+.btn-cyclee4 {
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 18px;
+  border: 1px solid $c-red;
+  width: 166px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $c-red;
+  line-height: 18px;
+  &:hover {
+    background-color: white;
+    color: $c-red;
   }
 }
