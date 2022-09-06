@@ -1,46 +1,48 @@
 <div class="user-container">
 
-  <% if current_user.present? %>
+  <div class="content-wrap">
+    <% if current_user.present? %>
 
     <div class="user-profile-contents">
       <div class="cyclee-profile-user">
-        <p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
+        <%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill) : (image_tag "logo.png", crop: :fill, class: "avatar") %>
       </div>
-      <div class="text-profile">
-        <p><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></p>
+      <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+    </div>
+
+    <div class="parked-wrap">
+      <div class="content">
+        <h2>Where I'm parked:</h2>
+        <p><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></p>
+      </div>
+      <div class="map-wrap" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-objectID-value="">
+        <div id="map" data-map-target="wrapper"></div>
+        <%# <div data-map-target="lanepartial"></div> %>
       </div>
     </div>
 
-    <div class="location-text">
-      <p>Where I’m parked: </p>
-      <h2><strong><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></strong></h2>
-    </div>
-
-    <div data-controller="map"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-          data-map-objectID-value="">
-        <div id="map" style="width: 350px; height: 300px;"
-          data-map-target="wrapper"></div>
-        <div data-map-target="lanepartial">
-        </div>
-    </div>
-
-    <div class="history-container">
-      <p>Parking History:</p>
-      <div class="history-wrap">
+    <div class="history-wrap">
+      <h2>Parking History:</h2>
+      <div class="history">
           <% current_user.parking_histories.each do |history| %>
             <div class="history-content">
               <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
-              <p class="address"><%= history.parking_location.address %></p>
-              <p class="created-at"><%= history.created_at %></p>
+              <div class="content">
+                <p class="address"><%= history.parking_location.address %></p>
+                <p class="created-at"><%= history.created_at %></p>
+              </div>
             </div>
           <% end %>
       </div>
-
     </div>
 
+    <% end %>
+  </div>
 
-  <% end %>
+
 </div>
 
 <%= render "shared/footer" %>
+
+
+<%# style="width: 350px; height: 300px;" %>
