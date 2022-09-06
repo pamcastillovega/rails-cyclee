@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="lane-slider"
+// Connects to data-controller="slider"
 export default class extends Controller {
   static targets = ["slider-toggle", "wrap"]
 
   connect() {
-    console.log("connected lane slider controller")
+    console.log("connected slider controller")
   }
 
   slideToggle() {
