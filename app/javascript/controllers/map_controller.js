@@ -49,22 +49,30 @@ export default class extends Controller {
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-      let oneMarker = new mapboxgl.Marker()
+      // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      if(marker.flagged == true) {
+        customMarker.classList.add("marker-red");
+      }
+
+      let oneMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(this.map)
       currentMarkers.push(oneMarker)
-      popup.on('open', (event) => {
-        console.log(marker.id);
+      oneMarker.getElement().addEventListener('click', () => {
         const url = `/parking_locations/${marker.id}/reports`
         fetch(url, {headers: {"Accept": "text/plain"}})
         .then(response => response.text())
         .then((data) => {
           this.lanepartialTarget.innerHTML = data
         })
-
-        });
+      });
+      // popup.on('open', (event) => {
+      //   console.log(marker.id);
+      // });
     })
   }
 
@@ -129,7 +137,6 @@ export default class extends Controller {
       });
 
     e.target.on('click', 'full', (e) => {
-      console.log(e.features);
       const objectID = e.features[0].properties.OBJECTID
       // update()
       // console.log(objectID);

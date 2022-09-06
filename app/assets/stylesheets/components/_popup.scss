@@ -1,0 +1,19 @@
+.marker {
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  // border: 1px solid $c-darkgray;
+  // border-radius: 5px;
+  filter: invert(39%) sepia(6%) saturate(74%) hue-rotate(314deg) brightness(92%) contrast(90%) drop-shadow(1px 1px 10px white);
+  // background-color: rgba(255, 255, 255, 0.5) !important;
+  &:hover {
+    height: 35px;
+    width: 35px;
+    transition: 0.7s;
+  }
+}
+
+.marker.marker-red {
+  filter: invert(43%) sepia(43%) saturate(3419%) hue-rotate(324deg) brightness(100%) contrast(97%) drop-shadow(1px 1px 8px white);
+}
