@@ -2,39 +2,44 @@
   z-index: -1;
   .slider-wrap {
     z-index: 2;
-    // height: 40vh;
-    height: 100vh;
     position: fixed;
     bottom: 0;
-    overflow: scroll;
-    padding-top: 600px;
-    padding-bottom: 60px;
+    height: 210px;
+    width: 100%;
+    transition: all .3s ease-out;
+    padding-bottom: 70px;
     .lane-container {
-      padding-top: 5px;
       background-color: white;
-      // position: absolute;
-      // top: 0;
+      border-radius: 8px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
   }
-}
-
-.bar {
-  width: 80px;
-  height: 5px;
-  border-radius: 4px;
-  background-color: $c-lightgray;
-  margin: auto;
-}
-.lane-wrap {
-  margin: 40px 10px;
-  .lane-type, .lane-rating {
-    margin: 15px 10px;
-    padding: 0;
+  .active {
+    height: 85%;
+    transition: all .3s ease-out;
   }
 }
 
-.cyclee-map-toggle {
-  z-index: 1;
+.toggle-wrap {
+  border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
+  .slider-toggle {
+    width: 70px;
+    height: 5px;
+    border-radius: 4px;
+    background-color: $c-lightgray;
+    margin: 10px auto;
+  }
+}
+
+.lane-wrap {
+  margin: 20px 10px;
+  .lane-details {
+    margin: 20px auto;
+    .lane-type, .lane-rating {
+      margin: 20px 10px;
+      padding: 0;
+    }
+  }
 }
 
 .cyclee-map-add {

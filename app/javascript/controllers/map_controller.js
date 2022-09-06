@@ -49,22 +49,30 @@ export default class extends Controller {
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
-      let oneMarker = new mapboxgl.Marker()
+      // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      if(marker.flagged == true) {
+        customMarker.classList.add("marker-red");
+      }
+
+      let oneMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
+        // .setPopup(popup)
         .addTo(this.map)
       currentMarkers.push(oneMarker)
-      popup.on('open', (event) => {
-        console.log(marker.id);
+      oneMarker.getElement().addEventListener('click', () => {
         const url = `/parking_locations/${marker.id}/reports`
         fetch(url, {headers: {"Accept": "text/plain"}})
         .then(response => response.text())
         .then((data) => {
           this.lanepartialTarget.innerHTML = data
         })
-
-        });
+      });
+      // popup.on('open', (event) => {
+      //   console.log(marker.id);
+      // });
     })
   }
 
@@ -98,9 +106,9 @@ export default class extends Controller {
     // }
     // });
 
-      e.target.addSource('test', {
+      e.target.addSource('full', {
         'type': 'geojson',
-        'data': 'https://lionheartsg.github.io/data/bike-network-data-4326.geojson'
+        'data': 'https://lionheartsg.github.io/data/test2.geojson'
       });
 
       // e.target.addLayer({
@@ -119,22 +127,21 @@ export default class extends Controller {
       // });
 
       e.target.addLayer({
-        'id': 'test',
+        'id': 'full',
         'type': 'line',
-        'source': 'test',
+        'source': 'full',
         'layout': {
         'line-join': 'round',
         'line-cap': 'round'
       },
         'paint': {
-        'line-color': '#888',
+        'line-color': ['get', 'color'],
         'line-width': 3
         }
 
       });
 
-    e.target.on('click', 'test', (e) => {
-      console.log(e.features);
+    e.target.on('click', 'full', (e) => {
       const objectID = e.features[0].properties.OBJECTID
       // update()
       // console.log(objectID);
