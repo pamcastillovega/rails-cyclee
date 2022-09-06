@@ -10,7 +10,8 @@ class LanesController < ApplicationController
         lat: location.latitude,
         lng: location.longitude,
         id: location.id,
-        info_window: render_to_string(partial: "info_window", locals: { location: location })
+        image_url: helpers.asset_url("square-parking-solid.svg")
+        # info_window: render_to_string(partial: "info_window", locals: { location: location })
       }
     end
   end
