@@ -2,14 +2,7 @@
 <br>
 <br>
 <h1>Create a new Parking spot!</h1>
-<br>
-<br>
-  <div data-controller="parking"
-        data-parking-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      <div id="parkingmap" style="width: 350px; height: 300px;"
-        data-parking-target="parker"
-        data-parking-markers-value="<%= @markers.to_json %>"></div>
-  </div>
+
 
   <div id="location-new">
     <%= simple_form_for @parking_location do |f| %>
@@ -17,11 +10,20 @@
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
-      <%= f.submit :Create %>
+    <div data-controller="parking"
+          data-parking-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div id="parkingmap" style="width: 350px; height: 300px;"
+          data-parking-target="parker"
+          data-parking-markers-value="<%= @markers.to_json %>"></div>
+    </div>
+      <br>
+      <%= f.submit :Create, class: "btn btn-cyclee3" %>
       <% end %>
   </div>
+
+ <%= link_to "Park", root_path, class: "btn btn-cyclee3" %>
 </div>
- <%# <%= link_to "Create", new_parking_location(parking_location), class: "btn btn-cyclee2" %>
+
 
 
 
