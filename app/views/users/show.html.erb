@@ -1,8 +1,6 @@
 <div class="user-container">
-
   <div class="content-wrap">
     <% if current_user.present? %>
-
     <div class="user-profile-contents">
       <div class="cyclee-profile-user">
       <%= link_to edit_user_path(current_user) do  %>
@@ -11,10 +9,6 @@
       </div>
       <p><%= current_user.first_name %> <%= current_user.last_name %></p>
     </div>
-
-
-
-
     <div class="parked-wrap">
       <div class="content">
         <h2>Where I'm parked:</h2>
@@ -25,7 +19,6 @@
         <%# <div data-map-target="lanepartial"></div> %>
       </div>
     </div>
-
     <div class="history-wrap">
       <h2>Parking History:</h2>
       <div class="history">
@@ -40,14 +33,7 @@
           <% end %>
       </div>
     </div>
-
     <% end %>
   </div>
-
-
 </div>
-
 <%= render "shared/footer" %>
-
-
-<%# style="width: 350px; height: 300px;" %>
