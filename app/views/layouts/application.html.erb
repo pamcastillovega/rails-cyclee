@@ -20,7 +20,24 @@
 
 
     <%= yield %>
+    
   <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
+   <div class="footer-cyclee">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-location-dot fa-2xl"></i>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to user_path(current_user) do %>
+      <i class="fa-solid fa-person-biking fa-2xl"></i>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-person-biking fa-2xl"></i>
+    <% end %>
+  <% end %>
+</div>
+
   </body>
 </html>
