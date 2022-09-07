@@ -17,30 +17,49 @@
         <h2>Where I'm parked:</h2>
         <p><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></p>
       </div>
-      <div class="map-wrap" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-objectID-value="">
-        <div id="map" data-map-target="wrapper"></div>
-        <%# <div data-map-target="lanepartial"></div> %>
+      <div data-controller="parked-location"
+            data-parked-location-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            data-parked-location-lng-value="<%= @lng %>"
+            data-parked-location-lat-value="<%= @lat %>">
+        <div id="parked-location-map"
+              style="width: 350px; height: 300px;"
+              data-parked-location-target="parked">
+        </div>
       </div>
+
+
     </div>
 
     <div class="history-wrap">
       <h2>Parking History:</h2>
       <div class="history">
+        <% if current_user.parking_histories.present? %>
           <% current_user.parking_histories.each do |history| %>
+            <% if history.parking_location.reports.present?%>
+              <div class="history-content">
+                <i class="fa-solid fa-square-parking icon red"></i>
+                <div class="content">
+                  <p class="address"><%= history.parking_location.address %></p>
+                  <p class="created-at"><%= history.created_at %></p>
+                </div>
+              </div>
+            <% else %>
             <div class="history-content">
-              <i class="fa-solid fa-solid fa-flag fa-2xl"></i>
+              <i class="fa-solid fa-square-parking icon green"></i>
               <div class="content">
                 <p class="address"><%= history.parking_location.address %></p>
                 <p class="created-at"><%= history.created_at %></p>
               </div>
-            </div>
+            <% end %>
           <% end %>
+        <% else %>
+          <p>You have no recorded parking history.</p>
+        <% end %>
       </div>
     </div>
 
     <% end %>
   </div>
-
 
 </div>
 
