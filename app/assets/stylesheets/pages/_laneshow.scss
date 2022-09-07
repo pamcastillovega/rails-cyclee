@@ -5,6 +5,7 @@
     position: fixed;
     bottom: 0;
     height: 210px;
+    // width: 100%;
     transition: all .3s ease-out;
     padding-bottom: 50px;
     .container {
@@ -20,17 +21,17 @@
 }
 
 
-.toggle-wrap {
-  border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
-  .slider-toggle {
-    // border: solid 1px blue;
-    width: 70px;
-    height: 5px;
-    border-radius: 4px;
-    background-color: $c-lightgray;
-    margin: 10px auto;
-  }
-}
+// .toggle-wrap {
+//   border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
+//   .slider-toggle {
+//     // border: solid 1px blue;
+//     width: 70px;
+//     height: 5px;
+//     border-radius: 4px;
+//     background-color: $c-lightgray;
+//     margin: 10px auto;
+//   }
+// }
 
 .lane-wrap {
   margin: 20px 10px;
