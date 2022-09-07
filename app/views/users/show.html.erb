@@ -33,7 +33,7 @@
           <% current_user.parking_histories.each do |history| %>
             <% if history.parking_location.reports.present?%>
               <div class="history-content">
-                <i class="fa-solid fa-square-parking icon red"></i>
+                <i class="fa-solid fa-square-parking icon report"></i>
                 <div class="content">
                   <p class="address"><%= history.parking_location.address %></p>
                   <p class="created-at"><%= history.created_at %></p>
@@ -41,7 +41,7 @@
               </div>
             <% else %>
             <div class="history-content">
-              <i class="fa-solid fa-square-parking icon green"></i>
+              <i class="fa-solid fa-square-parking icon"></i>
               <div class="content">
                 <p class="address"><%= history.parking_location.address %></p>
                 <p class="created-at"><%= history.created_at %></p>
@@ -57,4 +57,3 @@
   </div>
 
 </div>
-<%= render "shared/footer" %>
