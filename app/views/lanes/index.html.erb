@@ -4,21 +4,27 @@
   data-map-lanes-name-value="<%= @lane.name.to_json %>"
   data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
   data-map-objectID-value="">
-  <div id="map" data-map-target="wrapper">
-    <div class="slider-wrap" data-controller="slider" data-slider-target="wrap">
+
+  <div id="map"
+        data-map-target="wrapper"
+        data-controller="slider">
+    <div class="toggle-wrap"
+        data-slider-target="toggles">
+      <div class="toggle map-parking-toggle">
+        <i class="fa-solid fa-square-parking icon" data-show-markers="true" data-action="click->map#toggle"></i>
+      </div>
+      <div class="toggle map-new-parking-toggle">
+        <%= link_to new_parking_location_path(@parking_location) do %>
+          <i class="fa-solid fa-plus fa-2xl icon" data-show-markers="true" data-action="click->map#add"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="slider-wrap"
+          data-slider-target="wrap">
       <div class="container" data-map-target="lanepartial"></div>
     </div>
   </div>
-  <div class="toggle-wrap">
-    <div class="toggle map-parking-toggle">
-      <i class="fa-solid fa-square-parking icon" data-show-markers="true" data-action="click->map#toggle"></i>
-    </div>
-    <div class="toggle map-new-parking-toggle">
-      <%= link_to new_parking_location_path(@parking_location) do %>
-        <i class="fa-solid fa-plus fa-2xl icon" data-show-markers="true" data-action="click->map#add"></i>
-      <% end %>
-    </div>
-  </div>
+
 </div>
 
 <%= render "shared/footer"  %>
