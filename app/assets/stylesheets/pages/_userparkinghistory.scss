@@ -9,11 +9,12 @@
 }
 
 .user-profile-contents {
+  margin: 25px 0;
   display: flex;
   .cyclee-profile-user {
     img {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
     }
   }
   p {
@@ -25,8 +26,9 @@
 }
 
 .parked-wrap {
+  margin: 25px 0;
   .content {
-    margin: 20px 0;
+    margin: 15px 0;
     h2 {
       margin: 0;
     }
@@ -35,18 +37,12 @@
       font-size: 20px;
     }
   }
-  .map-wrap {
-    #map {
-      // z-index: 1;
-      width: 350px;
-      height: 300px;
-    }
-  }
 }
 
 .history-wrap {
+  margin: 25px 0;
   h2 {
-    margin: 20px 0;
+    margin-bottom: 15px 0;
   }
   .history {
     .history-content {
@@ -55,9 +51,15 @@
       padding: 0;
       margin: 15px 0;
       display: flex;
-      .fa-flag {
+      .icon {
         font-size: 25px;
         margin: auto 0 auto 20px;
+      }
+      .icon.red {
+        color: $c-red;
+      }
+      .icon.green {
+        color: $c-green;
       }
       .content {
         margin-left: 15px;
