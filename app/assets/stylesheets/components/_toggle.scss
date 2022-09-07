@@ -1,7 +1,7 @@
 .toggle-wrap {
   z-index: 1;
   position: absolute;
-  bottom: 200px;
+  bottom: 220px;
   right: 10px;
   .toggle {
     border-radius: 50%;
@@ -21,6 +21,9 @@
     .icon:active {
       color: $c-darkgray;
       transition: ease-in 0.3s;
+    }
+    a {
+      text-decoration: none;
     }
   }
 }
