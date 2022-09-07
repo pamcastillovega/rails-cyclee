@@ -1,12 +1,8 @@
 class ParkingLocationsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index
-  end
-
   def new
     @parking_location = ParkingLocation.new
-
   end
 
   def create
@@ -15,13 +11,12 @@ class ParkingLocationsController < ApplicationController
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
-   end
+    end
   end
 
   private
 
   def location_params
     params.require(:parking_location).permit(:address, :photo)
-
   end
 end

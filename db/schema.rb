@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_01_065100) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_033712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_065100) do
     t.datetime "updated_at", null: false
     t.string "coordinates"
     t.string "objectid"
+    t.string "color", default: "#616161"
   end
 
   create_table "parking_histories", force: :cascade do |t|

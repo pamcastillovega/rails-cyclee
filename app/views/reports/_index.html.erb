@@ -12,18 +12,16 @@
         </div>
       </div>
       <div class="report-buttons">
-        <%= link_to "Report", new_parking_location_report_path(@parking_location), class: "btn btn-cyclee1" %>
-        <%= link_to "Park", new_parking_location_parking_history_path(@parking_location), class: "btn btn-cyclee2" %>
+        <div class="btn btn-cyclee1">Report</div>
+        <div class="report-btn-wrap">
+          <%= simple_form_for [@parking_location, @parkinghistory] do |f| %>
+            <%= f.button :submit, "Park", class: "btn btn-cyclee1" %>
+          <% end %>
+        </div>
       </div>
     </div>
-
-    <div class="review-wrap">
-      <% @reports.each do |report| %>
-        <%= render "shared/reportcard", report: report %>
-      <% end %>
-    </div>
-
+    <% @reports.each do |report| %>
+      <%= render "shared/reportcard", report: report %>
+    <% end %>
   </div>
 </div>
-
-<%= render "shared/footer" %>

@@ -2,7 +2,7 @@
   <div class="logo-img">
     <%= image_tag "cyclee-logo", class: "cyclee-logo" %>
   </div>
-  <h2>Sign up testttttt</h2>
+  <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.error_notification %>
@@ -30,5 +30,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-
-<%= render "shared/footer" %>
