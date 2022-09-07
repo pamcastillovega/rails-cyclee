@@ -21,6 +21,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .location-mapcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   form#new_parking_location {
     label {
       display: none;
