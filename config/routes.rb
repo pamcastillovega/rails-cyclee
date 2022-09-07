@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     collection do
       get :sample
     end
+    member do
+      get :color_update
+    end
   end
 
   resources :users
@@ -22,5 +25,9 @@ Rails.application.routes.draw do
   resources :parking_locations do
     resources :reports, only: %i[index new create]
     resources :parking_histories, only: %i[create]
+  end
+
+  namespace :api do
+    resources :lanes, only: %i[index]
   end
 end

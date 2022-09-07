@@ -182,13 +182,35 @@ lanes["features"].each do |lane|
     objectid: lane["properties"]["OBJECTID"]
   )
   puts 'Lane created'
-  Review.create(
-    rating: rand(5),
+
+    Review.create(
+    rating: rand(1..5),
     lane: lane_obj,
     user: USERS.sample,
     comment: "What an interesting bike lane. Very interesting indeed."
-  )
+  ) if lane["properties"]["OBJECTID"].even?
   puts 'Review created'
+end
+
+all_lanes = Lane.all
+
+all_lanes.each do |lane|
+  ratings = []
+  lane.reviews.each do |review|
+    ratings << review.rating
+    average = ratings.length.zero? ? 0 : ratings.sum / ratings.length
+    case average
+    when 1..2
+      lane.color = "#F94C66"
+    when 3
+      lane.color = "#FFC54D"
+    when 3..5
+      lane.color = "#53BF9D"
+    else
+      lane.color = "#616161" if lane.color.nil?
+    end
+    lane.save!
+  end
 end
 
 puts 'Finished!'
