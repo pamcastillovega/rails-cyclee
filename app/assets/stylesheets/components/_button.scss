@@ -33,23 +33,23 @@
 }
 
 .btn-cyclee3 {
-  color: #616161;
+  color: $c-darkgray;
   border-radius: 4px;
   font-size: 18px;
-  border: 1px solid #616161;
+  border: 1px solid $c-darkgray;
   width: 370px;
   height: 47px;
   display: flex;
   justify-content: center;
   align-items: center;
   &:hover {
-    background-color: #616161;
+    background-color: $c-darkgray;
     color: white;
   }
 }
 
 .btn-cyclee4 {
-  color: #ffffff;
+  color: white;
   border-radius: 4px;
   font-size: 18px;
   border: 1px solid $c-red;

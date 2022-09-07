@@ -3,15 +3,23 @@
     <div class="slide-toggle-wrap">
       <div class="slider-toggle" data-action="click->slider#slideToggle"></div>
     </div>
+
     <div class="parking-wrap">
+
       <div class="cyclee-report-card-address report-index">
-        <i class="fa-solid fa-square-parking"></i>
-        <div class="cyclee-report-card-title">
-          <p class="m-0 address"><%= @parking_location.address %></p>
-          <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
-        </div>
+        <% if @parking_location.reports.present? %>
+          <i class="fa-solid fa-square-parking report"></i>
+        <% else %>
+          <i class="fa-solid fa-square-parking no-report"></i>
+        <% end %>
+          <div class="cyclee-report-card-title">
+            <p class="m-0 address"><%= @parking_location.address %></p>
+            <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
+          </div>
       </div>
+
     </div>
+
     <div class="report-buttons">
       <div class="btn btn-cyclee1">Report</div>
       <div class="report-btn-wrap">
