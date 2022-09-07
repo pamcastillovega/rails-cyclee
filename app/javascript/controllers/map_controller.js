@@ -47,18 +47,6 @@ export default class extends Controller {
 
   }
 
-  addParkingToMap() {
-    this.location.on('geolocate', (e) => {
-      console.log(e.coords);
-      this.parkingmap = new mapboxgl.Map({
-        container: this.parkerTarget,
-        style: "mapbox://styles/mapbox/light-v10",
-        center: [e.coords],
-        zoom: 12
-      })
-    });
-  }
-
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
