@@ -1,0 +1,13 @@
+<div class="avatar-profile-container">
+  <div class="avatar-profile">
+    <p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, width: 100, height: 100, crop: :fill, class: "rounded-circle") : (image_tag "logo.png", width: 100, height: 100, crop: :fill, class: "rounded-circle") %></p>
+  </div>
+
+  <div class="avatar-content">
+    <h2>Update your Avatar Photo</h2>
+    <%= simple_form_for(current_user) do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn btn-cyclee2" %>
+    <% end %>
+  </div>
+</div>
