@@ -7,7 +7,6 @@
     margin: 20px;
   }
 }
-
 .user-profile-contents {
   margin: 25px 0;
   display: flex;
@@ -24,7 +23,6 @@
     color: $c-darkgray;
   }
 }
-
 .parked-wrap {
   margin: 25px 0;
   .content {
@@ -38,7 +36,6 @@
     }
   }
 }
-
 .history-wrap {
   margin: 25px 0;
   h2 {
@@ -54,12 +51,10 @@
       .icon {
         font-size: 25px;
         margin: auto 0 auto 20px;
+        color: $c-darkgray;
       }
-      .icon.red {
+      .icon.report {
         color: $c-red;
-      }
-      .icon.green {
-        color: $c-green;
       }
       .content {
         margin-left: 15px;
