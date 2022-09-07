@@ -27,9 +27,9 @@ export default class extends Controller {
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
       profile: 'mapbox/cycling',
-      alternatives: true,
+      alternatives: false,
       interactive: false,
-      controls: { instructions: false, profileSwitcher: false },
+      controls: { instructions: true, profileSwitcher: false }
     });
 
     this.location = new mapboxgl.GeolocateControl({
@@ -44,8 +44,50 @@ export default class extends Controller {
     this.addMarkersToMap()
     this.map.addControl(this.directions, 'top-left')
     this.map.addControl(this.location, 'top-right')
+
+    const instructions = this.map._controlContainer.querySelector(".directions-control-instructions")
+    instructions.dataset.action = "DOMNodeInserted->map#test"
   }
 
+  test(e) {
+    const laneNames = []
+    const directionText = e.target.innerText
+    const regex = /onto\s(.+)\b/g;
+
+    const lanes = directionText.matchAll(regex);
+
+    for (const lane of lanes) {
+      laneNames.push(lane[1]);
+    }
+
+    const result = [...new Set(laneNames)]
+    const url = `/?query=${result.join(",")}`
+    fetch(url, {headers: {"Accept": "text/plain"}})
+      .then(response => response.text())
+      .then((data) => {
+        console.log(data);
+      })
+
+    // laneNames.forEach((lane) => console.log(lane))
+    // const startingLocation = document.querySelectorAll("input")[0]
+    // const endingLocation = document.querySelectorAll("input")[1]
+
+    // console.log(startingLocation.value);
+    // console.log(endingLocation.value);
+
+    // this.fetchCoordinates(startingLocation.value)
+    // this.fetchCoordinates(endingLocation.value)
+
+    // console.log(coordinate2);
+  }
+
+  async fetchCoordinates(query) {
+
+    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ca&limit=1&access_token=${this.apiKeyValue}`);
+
+    const data = await response.json()
+    return data["features"][0]["center"]
+  }
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -86,11 +128,6 @@ export default class extends Controller {
       this.addMarkersToMap()
     }
   }
-
-  add(e) {
-
-  }
-
 
     loadRoutes(e) {
 

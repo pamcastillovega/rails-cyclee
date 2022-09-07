@@ -25,6 +25,20 @@ class LanesController < ApplicationController
         }
       end
     end
+
+    if params[:query].present?
+      lane_names = params[:query].split(",")
+      lane_names.map! { |lane| lane.gsub("Street", "St") }
+      lane_names.map! { |lane| lane.gsub("Road", "Rd") }
+      @lanes_filter = @lanes.select { |lane| lane_names.include?(lane.name) }
+      @lanes_filter = @lanes_filter.uniq(&:name)
+      @lanes_filter.map!(&:id)
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "lanes/lane", locals: { lanes: @lanes_filter }, formats: [:html] }
+    end
   end
 
   def show
@@ -45,3 +59,11 @@ class LanesController < ApplicationController
   def sample
   end
 end
+
+
+
+# a = params[:id].split(",")
+# a.map! { |n| n.to_i }
+# a.each_with_index do |id, ind|
+#   lane"#{ind}" = Lane.find(id)
+# end
