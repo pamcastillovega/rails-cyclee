@@ -13,22 +13,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :parking_histories, only: %i[show]
+  resources :users
 
-  end
+  resources :reviews
 
   resources :parking_locations
 
   resources :parking_locations do
     resources :reports, only: %i[index new create]
-    resources :parking_histories, only: %i[new create]
-  end
-
-  resources :reviews
-
-  resources :parking_histories do
-    resources :users
-    resources :parking_locations
+    resources :parking_histories, only: %i[create]
   end
 end
