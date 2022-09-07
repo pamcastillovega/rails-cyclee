@@ -120,7 +120,8 @@ export default class extends Controller {
 
       e.target.addSource('full', {
         'type': 'geojson',
-        'data': 'https://lionheartsg.github.io/data/test2.geojson'
+        'data': 'http://localhost:3000/api/lanes.json'
+        // 'data': 'https://lionheartsg.github.io/data/test2.geojson'
       });
 
       // e.target.addLayer({
@@ -154,7 +155,7 @@ export default class extends Controller {
       });
 
     e.target.on('click', 'full', (e) => {
-      const objectID = e.features[0].properties.OBJECTID
+      const objectID = e.features[0].properties.objectid
       // update()
       // console.log(objectID);
 

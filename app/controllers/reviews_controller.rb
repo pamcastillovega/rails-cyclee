@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     @review.lane = @lane
     @review.user = current_user
     if @review.save
-      redirect_to lanes_path
+      redirect_to color_update_lane_path(@lane)
     else
       render :new, status: :unprocessable_entity
     end

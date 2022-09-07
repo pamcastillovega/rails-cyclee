@@ -44,4 +44,29 @@ class LanesController < ApplicationController
 
   def sample
   end
+
+  def update
+  end
+
+  def color_update
+    @lane = Lane.find(params[:id])
+    ratings = []
+    @lane.reviews.each do |review|
+      ratings << review.rating
+    end
+    average = ratings.length.zero? ? 0 : ratings.sum / ratings.length
+
+    case average
+    when 1..2
+      @lane.color = "#F94C66"
+    when 3
+      @lane.color = "#FFC54D"
+    when 3..5
+      @lane.color = "#53BF9D"
+    else
+      @lane.color = "#616161" if lane.color.nil?
+    end
+    @lane.save!
+    redirect_to lanes_path
+  end
 end
