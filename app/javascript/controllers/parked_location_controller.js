@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("parked location controller is connected")
+    // console.log("parked location controller is connected")
     mapboxgl.accessToken = this.apiKeyValue
 
     // Add map snapshot

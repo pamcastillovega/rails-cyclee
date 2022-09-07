@@ -9,6 +9,7 @@
 }
 
 .user-profile-contents {
+  margin: 25px 0;
   display: flex;
   .cyclee-profile-user {
     img {
@@ -25,8 +26,9 @@
 }
 
 .parked-wrap {
+  margin: 25px 0;
   .content {
-    margin: 20px 0;
+    margin: 15px 0;
     h2 {
       margin: 0;
     }
@@ -38,8 +40,9 @@
 }
 
 .history-wrap {
+  margin: 25px 0;
   h2 {
-    margin: 20px 0;
+    margin-bottom: 15px 0;
   }
   .history {
     .history-content {
