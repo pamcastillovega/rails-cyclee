@@ -8,10 +8,11 @@ h1 {
   margin: 50px 20px 20px 20px;
 }
 
-.map-search-wrap {
+.search-wrap {
   margin: 0 20px;
-  .search-input {
-    border: solid 1px red;
+  border: solid 1px red;
+  .map-wrap {
+    border: solid 1px blue;
   }
 }
 
