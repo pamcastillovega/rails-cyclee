@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column align-items-center">
 
-  <div id="location-new">
+  <div id="location-new" class="mt-5">
     <h1>Create a new Parking spot!</h1>
     <%= simple_form_for @parking_location do |f| %>
       <%= f.input :address,
@@ -15,14 +15,15 @@
               data-parking-markers-value="<%= @markers.to_json %>"></div>
         </div>
       </div>
-
       <br>
-      <div class="parking-page-buttons">
+
+
+  </div>
+        <div class="parking-page-buttons d-flex gap-3">
         <%= f.submit :Create, class: "btn btn-cyclee1" %>
-    <% end %>
 
         <%= link_to "Park", root_path, class: "btn btn-cyclee2" %>
       </div>
-  </div>
 
+<% end %>
 </div>
