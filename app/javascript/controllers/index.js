@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HideCreateToggleController from "./hide_create_toggle_controller"
+application.register("hide-create-toggle", HideCreateToggleController)
+
 import LocationButtonController from "./location_button_controller"
 application.register("location-button", LocationButtonController)
 

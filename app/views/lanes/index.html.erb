@@ -1,23 +1,25 @@
 <div data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-map-lanes-name-value="<%= @lane.name.to_json %>"
-  data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
-  data-map-objectID-value="">
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-lanes-name-value="<%= @lane.name.to_json %>"
+      data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
+      data-map-objectID-value="">
   <div id="map" data-map-target="wrapper">
     <div class="slider-wrap" data-controller="slider" data-slider-target="wrap">
       <div class="cyclee-map-toggle">
         <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
       </div>
-      <div class="container" data-map-target="lanepartial"></div>
+      <div class="toggle map-parking-toggle"
+            data-action="click->hide-create-toggle#hide">
+        <i class="fa-solid fa-square-parking icon"
+            data-show-markers="true"
+            data-action="click->map#toggle"></i>
+      </div>
     </div>
-        <div class="cyclee-map-toggle">
-      <i class="fa-solid fa-map-pin fa-2xl" data-show-markers="true" data-action="click->map#toggle"></i>
-    </div>
-    <div class="cyclee-map-add">
-      <%= link_to new_parking_location_path(@parking_location) do %>
-      <i class="fa-solid fa-plus fa-2xl" data-show-markers="true" data-action="click->map#add"></i>
-      <% end %>
+    <div class="slider-wrap"
+          data-slider-target="wrap">
+      <div class="container"
+            data-map-target="lanepartial"></div>
     </div>
   </div>
   <div data-map-target="button">
