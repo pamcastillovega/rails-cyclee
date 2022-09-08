@@ -1,38 +1,29 @@
-.cyclee-map-toggle {
+.toggle-wrap {
+  z-index: 1;
   position: absolute;
-  top: -70px;
-  right: 8px;
-  // z-index: 1;
-  width: 55px;
-  height: 55px;
+  bottom: 220px;
+  right: 10px;
+}
+
+.toggle {
   border-radius: 50%;
   background-color: white;
+  width: 60px;
+  height: 60px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $c-darkgray;
-  .fa-square-parking:active {
-    color: $c-red;
+  margin: 10px 0;
+  .icon {
+    color: $c-lightgray;
+    font-size: 30px;
   }
-}
-
-
-.cyclee-map-add {
-  position: absolute;
-  bottom: 290px;
-  right: 8px;
-  z-index: 1;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 1px 1px 2px 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $c-darkgray;
-  .fa-plus:active {
-    color: $c-red;
+  .icon:active {
+    color: $c-darkgray;
+    transition: ease-in 0.3s;
+  }
+  a {
+    text-decoration: none;
   }
 }

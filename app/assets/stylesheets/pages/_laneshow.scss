@@ -1,17 +1,11 @@
 #map {
   z-index: -1;
   .slider-wrap {
-    z-index: 2;
     position: fixed;
     bottom: 0;
     height: 210px;
     transition: all .3s ease-out;
     padding-bottom: 50px;
-    .container {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    }
   }
   .active {
     height: 85%;
@@ -19,30 +13,34 @@
   }
 }
 
-
-.toggle-wrap {
-  border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
-  .slider-toggle {
-    // border: solid 1px blue;
-    width: 70px;
-    height: 5px;
-    border-radius: 4px;
-    background-color: $c-lightgray;
-    margin: 10px auto;
-  }
-}
-
-.lane-wrap {
-  margin: 20px 10px;
-  .lane-details {
-    margin: 20px auto;
-    .lane-type, .lane-rating {
-      margin: 20px 10px;
-      padding: 0;
+.container {
+  z-index: 5;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin: 0;
+  padding: 0;
+  .slide-toggle-wrap {
+    border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
+    .slider-toggle {
+      width: 70px;
+      height: 5px;
+      border-radius: 4px;
+      background-color: $c-lightgray;
+      margin: 10px auto;
     }
   }
-}
-
-.cyclee-map-add {
-  z-index: 1;
+  .lane-wrap {
+    margin: 20px 10px;
+    .cyclee-big {
+      margin: 0;
+    }
+    .lane-details {
+      margin: 20px auto;
+      .lane-type, .lane-rating {
+        margin: 20px 10px;
+        padding: 0;
+      }
+    }
+  }
 }
