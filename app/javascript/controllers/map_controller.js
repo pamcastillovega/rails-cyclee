@@ -62,6 +62,8 @@ export default class extends Controller {
       }
 
       const result = [...new Set(laneNames)]
+      console.log(result);
+
       const url = `/?query=${result.join(",")}`
       fetch(url, {headers: {"Accept": "text/plain"}})
         .then(response => response.text())

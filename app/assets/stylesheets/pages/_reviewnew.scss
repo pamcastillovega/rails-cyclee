@@ -1,6 +1,7 @@
 .container {
   background-color: white;
   height: 100vh;
+
   .cyclee-lane {
     margin: 30px 0;
   }
@@ -8,5 +9,32 @@
     .input-wrap {
       margin: 40px 0;
     }
+  }
+}
+
+.partial {
+  height: 35vh;
+  label {
+    display: none;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .input-wrap {
+      margin: 0 !important;
+    }
+  }
+}
+
+.cyclee-review {
+  width: 100% !important;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  p {
+    font-weight: bold;
+    margin: 0;
+    color: white;
   }
 }

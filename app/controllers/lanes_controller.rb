@@ -37,7 +37,7 @@ class LanesController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "lanes/lane", locals: { lanes: @lanes_filter }, formats: [:html] }
+      format.text { render partial: "lanes/reviewbutton", locals: { lanes: @lanes_filter }, formats: [:html] }
     end
   end
 
@@ -83,8 +83,22 @@ class LanesController < ApplicationController
     @lane.save!
     redirect_to lanes_path
   end
-end
 
+  def journeyreview
+    @lanes = []
+    lane_ids = params[:laneIds].split(',')
+    lane_ids.map!(&:to_i)
+    lane_ids.each { |id| @lanes << Lane.find(id) }
+
+    @review = Review.new
+    # @reviews = @lane.reviews
+    # @ratings = []
+    # @reviews.each do |review|
+    #   @ratings << review.rating
+    # end
+    # @avgrating = @ratings.length.zero? ? 0 : @ratings.sum / @ratings.length
+  end
+end
 
 
 # a = params[:id].split(",")
