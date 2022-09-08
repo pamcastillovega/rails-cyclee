@@ -2,4 +2,4 @@
   <%# f.hidden_field :lane, value: params[:paths] %>
   <%# f.submit "Review Lanes", class: "btn btn-cyclee1" %>
   <%# end %>
-<%= link_to  "submit", "/reviews/new?laneIds=#{lanes.join(",")}" %>
+<%= link_to  "Review your journey", "/reviews/new?laneIds=#{lanes.join(",")}", class: "btn btn-cyclee1" %>

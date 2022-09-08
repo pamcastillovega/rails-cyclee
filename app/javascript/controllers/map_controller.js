@@ -4,7 +4,7 @@ let currentMarkers = []
 
 export default class extends Controller {
 
-  static targets = ['wrapper', 'lanepartial']
+  static targets = ['wrapper', 'lanepartial', 'button', 'exit']
   static values = {
     apiKey: String,
     markers: Array,
@@ -50,24 +50,27 @@ export default class extends Controller {
   }
 
   test(e) {
-    const laneNames = []
-    const directionText = e.target.innerText
-    const regex = /onto\s(.+)\b/g;
+    if(e.target.innerHTML !== 'undefined') {
+      const laneNames = []
+      const directionText = e.target.innerText
+      const regex = /onto\s(.+)\b/g;
 
-    const lanes = directionText.matchAll(regex);
+      const lanes = directionText.matchAll(regex);
 
-    for (const lane of lanes) {
-      laneNames.push(lane[1]);
+      for (const lane of lanes) {
+        laneNames.push(lane[1]);
+      }
+
+      const result = [...new Set(laneNames)]
+      const url = `/?query=${result.join(",")}`
+      fetch(url, {headers: {"Accept": "text/plain"}})
+        .then(response => response.text())
+        .then((data) => {
+          this.buttonTarget.insertAdjacentHTML("afterbegin", data)
+          console.log(data)
+        })
+      this.exitTarget.classList.toggle("d-none")
     }
-
-    const result = [...new Set(laneNames)]
-    const url = `/?query=${result.join(",")}`
-    fetch(url, {headers: {"Accept": "text/plain"}})
-      .then(response => response.text())
-      .then((data) => {
-        console.log(data);
-      })
-
     // laneNames.forEach((lane) => console.log(lane))
     // const startingLocation = document.querySelectorAll("input")[0]
     // const endingLocation = document.querySelectorAll("input")[1]
