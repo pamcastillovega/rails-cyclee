@@ -12,7 +12,7 @@ export default class extends Controller {
     this.wrapTarget.classList.toggle("active")
 
     if(this.wrapTarget.classList.contains("active")) {
-      this.wrapTarget.style.overflow = "scroll"
+      this.wrapTarget.style.overflow = "hidden"
       this.togglesTarget.style.display = "none"
     } else {
       this.wrapTarget.style.overflow = "visible"
