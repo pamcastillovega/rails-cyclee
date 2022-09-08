@@ -1,40 +1,18 @@
-.container {
+.review-container {
   background-color: white;
   height: 100vh;
-
+  padding-top: 5px;
   .cyclee-lane {
-    margin: 30px 0;
+    margin: 50px auto 20px auto;
   }
-  .form-wrap {
-    .input-wrap {
-      margin: 40px 0;
+  .form-review {
+    margin: 20px;
+    .input {
+      background-color: white;
+      border: solid 1px $c-lightgray;
     }
-  }
-}
-
-.partial {
-  height: 35vh;
-  label {
-    display: none;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    .input-wrap {
-      margin: 0 !important;
+    .btn-cyclee1 {
+      margin-top: 30px;
     }
-  }
-}
-
-.cyclee-review {
-  width: 100% !important;
-  display: flex;
-  align-items: center !important;
-  justify-content: center !important;
-  p {
-    font-weight: bold;
-    margin: 0;
-    color: white;
   }
 }
