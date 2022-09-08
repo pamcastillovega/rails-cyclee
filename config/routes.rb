@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'reports/create'
   devise_for :users
   root to: "lanes#index"
+  post "/", to: "lanes#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   resources :lanes do
     resources :reviews
     collection do
-      get :sample
+      get :sample, :journeyreview
     end
     member do
       get :color_update
