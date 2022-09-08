@@ -19,6 +19,7 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin: 0;
   padding: 0;
+  height: 100%;
   .slide-toggle-wrap {
     border: solid 1px transparent; // weird issue going on with toggle padding so I just added this transparent div to fix it
     .slider-toggle {
