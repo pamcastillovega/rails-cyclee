@@ -24,7 +24,7 @@ class ReportsController < ApplicationController
     @report.parking_location = @parking_location
     @report.user = current_user
     if @report.save
-      redirect_to parking_location_reports_path(@parking_location)
+      redirect_to lanes_path
     else
       render :new, status: :unprocessable_entity
     end
