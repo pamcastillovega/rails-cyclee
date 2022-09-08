@@ -1,10 +1,10 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="regist-container d-flex flex-column align-items-center">
   <div class="logo-img">
     <%= image_tag "cyclee-logo", class: "cyclee-logo" %>
   </div>
 
   <div class="devise-content">
-    <h1>Forgot your password?</h1>
+    <h1>Forgot Your Password?</h1>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
@@ -17,12 +17,12 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Reset", class: "btn btn-cyclee3", width: 300; %>
+      <%= f.button :submit, "Reset", class: "btn btn-cyclee3" %>
     </div>
       <% end %>
   </div>
 
-  <div class="devise-links">
+  <div class="devise-links d-flex gap-4">
     <%= render "devise/shared/links" %>
   </div>
 </div>
