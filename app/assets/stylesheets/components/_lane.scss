@@ -23,11 +23,22 @@
 .cyclee-big {
   height: 68px;
   width: 370px;
-  justify-content: center;
-  h2 {
-    font-size: 18px;
+  .title-wrap {
+    margin: auto;
+    display: flex;
+    .fa-road {
+      color: white;
+      margin: auto;
+    }
+    h2 {
+      font-weight: bold;
+      color: white;
+      margin: auto;
+      padding-left: 10px;
+    }
   }
 }
+
 
 .cyclee-red {
   background-color: $c-red;
