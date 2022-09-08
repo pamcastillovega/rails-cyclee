@@ -4,13 +4,10 @@
   bottom: 0;
   height: 210px;
   transition: all .3s ease-out;
-  padding-bottom: 50px;
   .container {
     background-color: white;
     border-radius: 8px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin: 0;
-    padding: 0;
   }
 }
 
@@ -18,7 +15,6 @@
   padding: 0 10px;
   .cyclee-report-card-address {
     margin-top: 20px;
-    // border: solid 1px green;
     .fa-square-parking {
       margin-right: 10px;
     }
