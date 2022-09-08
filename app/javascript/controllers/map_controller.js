@@ -150,7 +150,7 @@ export default class extends Controller {
 
       e.target.addSource('full', {
         'type': 'geojson',
-        'data': 'http://localhost:3000/api/lanes.json'
+        'data': '/api/lanes.json'
         // 'data': 'https://lionheartsg.github.io/data/test2.geojson'
       });
 
