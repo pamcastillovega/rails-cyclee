@@ -34,7 +34,7 @@
       <h2>Parking History:</h2>
       <div class="history">
         <% if current_user.parking_histories.present? %>
-          <% current_user.parking_histories.each do |history| %>
+          <% current_user.parking_histories.reverse.each do |history| %>
             <% if history.parking_location.reports.present?%>
               <div class="history-content">
                 <i class="fa-solid fa-square-parking icon report"></i>
