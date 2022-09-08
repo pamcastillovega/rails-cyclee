@@ -19,8 +19,9 @@
 }
 
 .accordion-item {
-  button {
-    // background-color: red;
+  margin-top: 10px;
+  h2 {
+    margin: 0;
   }
   .accordion-collapse {
     .accordion-body {
@@ -57,4 +58,12 @@
   h2 {
     margin: 0;
   }
+}
+
+.submitted {
+  color: $c-green;
+}
+
+.form-error {
+  color: $c-red;
 }

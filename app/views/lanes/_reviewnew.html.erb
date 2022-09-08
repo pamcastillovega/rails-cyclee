@@ -1,11 +1,11 @@
-<div class="accordion-item">
+<div class="accordion-item" data-controller="review-submit">
   <h2 class="accordion-header" id="headingOne">
     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= lane.id %>" aria-expanded="false" aria-controls="collapseOne">
-      <h2><i class="fa-solid fa-signs-post"></i> <%= lane.name %></h2>
+      <h2 data-review-submit-target="header"><i class="fa-solid fa-road"></i> <%= lane.name %></h2>
     </button>
   </h2>
   <div id="collapse-<%= lane.id %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-    <div class="accordion-body" data-controller="review-submit">
+    <div class="accordion-body">
       <%= render 'lanes/form', lane: lane, review: review %>
     </div>
   </div>
