@@ -1,13 +1,11 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="new-parking-container">
 
-  <div id="location-new" class="mt-5">
-    <h1>Create a new Parking spot!</h1>
+  <h1>New Parking Location:</h1>
+
+  <div class="map-search-wrap">
     <%= simple_form_for @parking_location do |f| %>
-      <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-      %>
-      <div class="location-mapcontainer">
+      <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+      <div class="map-wrap">
         <div data-controller="parking"
               data-parking-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             <div id="parkingmap" style="width: 350px; height: 300px;"
@@ -15,11 +13,12 @@
               data-parking-markers-value="<%= @markers.to_json %>"></div>
         </div>
       </div>
-      <br>
-    </div>
-        <div class="parking-page-buttons d-flex gap-3">
-        <%= f.submit :Create, class: "btn btn-cyclee1" %>
-        <%= link_to "Park", root_path, class: "btn btn-cyclee2" %>
-      </div>
-      <% end %>
+  </div>
+
+  <div class="parking-page-buttons d-flex gap-3">
+      <%= f.submit :Create, class: "btn btn-cyclee1" %>
+      <%= link_to "Park", root_path, class: "btn btn-cyclee1" %>
+  </div>
+    <% end %>
+
 </div>
