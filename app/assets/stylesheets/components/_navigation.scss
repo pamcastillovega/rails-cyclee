@@ -1,22 +1,32 @@
+.mapbox-directions-component-keyline{
+  margin: 8px !important;
+}
+
 .mapboxgl-ctrl-directions {
 
-    min-width: 390px !important;
-    margin: 0 !important;
+  margin: 0 !important;
 
   .directions-control {
     .directions-control-directions{
       height: 225px;
       position: relative;
-      top: 482px;
+      top: 521px;
       margin: 0 !important;
+      width: 100vw;
     }
   }
 }
 
+@media only screen and (max-width: 640px)  {
+  .directions-control.directions-control {
+    max-width: none !important;
+    margin: 0;
+  }
+}
 
 #navreview{
   position: relative;
-  top: 517px;
+  top: 571px;
   left: 0px;
   background-color: $c-red;
   color: white;
@@ -25,8 +35,8 @@
 
 #navexit {
   position: relative;
-  top: 470px;
-  left: 224px;
+  top: 523px;
+  left: 246px;
   background-color: $c-green;
   color: white;
   font-size: 12px;

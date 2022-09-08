@@ -2,9 +2,9 @@
   background-color: white;
   height: 100vh;
   padding: 20px 0 70px 0;
-  overflow: hidden;
   .content-wrap {
     margin: 20px;
+    background-color: white;
   }
 }
 .user-profile-contents {
@@ -38,6 +38,8 @@
 }
 .history-wrap {
   margin: 25px 0;
+  padding-bottom: 100px;
+  background-color: white;
   h2 {
     margin-bottom: 15px 0;
   }
