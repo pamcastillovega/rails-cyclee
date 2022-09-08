@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.text { render plain: "<h1>Review Submitted!</h1>" }
+        format.text { render partial: 'lanes/completed', formats: :html }
       else
         format.text { render partial: 'lanes/form', formats: :html, locals: { lane: @lane, review: @review } }
       end

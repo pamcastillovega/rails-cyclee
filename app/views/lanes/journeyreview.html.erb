@@ -1,7 +1,13 @@
-<div class="container">
+<div class="container review">
+  <div class="title">
+    <h1>Review bike lanes</h1>
+  </div>
   <div class="accordion" id="accordionExample">
      <% @lanes.each do |lane| %>
       <%= render "reviewnew", lane: lane, review: @review %>
     <% end %>
+  </div>
+  <div class="button">
+    <%= link_to "Done", root_path, class: "btn btn-cyclee4" %>
   </div>
 </div>
