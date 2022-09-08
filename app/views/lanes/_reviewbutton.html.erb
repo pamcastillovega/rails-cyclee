@@ -3,4 +3,4 @@
   <%# f.submit "Review Lanes", class: "btn btn-cyclee1" %>
   <%# end %>
 <%#= link_to  "Review your journey", "/lanes/journeyreview?laneIds=#{lanes.join(",")}", class: "btn btn-cyclee1" %>
-<%= link_to  "Review your journey", journeyreview_lanes_path(laneIds: lanes.join(",")), class: "btn btn-cyclee1" %>
+<%= link_to  "Review your journey", journeyreview_lanes_path(laneIds: lanes.join(",")), class: "btn btn-cyclee1", id: "navreview" %>
