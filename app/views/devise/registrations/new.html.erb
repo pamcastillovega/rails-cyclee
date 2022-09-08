@@ -1,4 +1,4 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="regist-container d-flex flex-column align-items-center">
   <div class="logo-img">
     <%= image_tag "cyclee-logo", class: "cyclee-logo" %>
   </div>
@@ -32,9 +32,10 @@
     <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "btn btn-cyclee3" %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 
-  <div class="devise-links">
+  <div class="devise-signup" >
     <%= render "devise/shared/links" %>
   </div>
 </div>
