@@ -5,16 +5,23 @@
 }
 
 h1 {
-  border: solid 1px blue;
   margin: 50px 20px 20px 20px;
 }
 
 .map-search-wrap {
-  border: solid 1px blue;
   margin: 0 20px;
-  .map-wrap {
-    border: solid 1px green;
+  input {
+    border: solid 1px red;
   }
+  // .map-wrap {
+  //   border: solid 1px green;
+  // }
+}
+
+.button-wrap {
+  margin: 30px 20px 0 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 // .map-search-wrap {
