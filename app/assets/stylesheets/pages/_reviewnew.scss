@@ -1,6 +1,7 @@
 .review-container {
   background-color: white;
-  height: 100vh;
+  height: auto;
+  overflow: inherit;
   padding-top: 5px;
   .cyclee-lane {
     margin: 50px auto 20px auto;
@@ -14,5 +15,46 @@
     .btn-cyclee1 {
       margin-top: 30px;
     }
+  }
+}
+
+.accordion-item {
+  button {
+    // background-color: red;
+  }
+  .accordion-collapse {
+    .accordion-body {
+      label {
+        display: none;
+      }
+    }
+  }
+}
+.container.review {
+  height: 120vh !important;
+  .title {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button {
+    padding-bottom: 50px;
+    a {
+      margin: 20px;
+    }
+  }
+}
+
+.completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: rgba(15, 157, 88, 0.9);
+  border-radius: 4px;
+  h2 {
+    margin: 0;
   }
 }
