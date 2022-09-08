@@ -17,11 +17,23 @@ class ReviewsController < ApplicationController
     @lane = Lane.find(params[:lane_id])
     @review.lane = @lane
     @review.user = current_user
-    if @review.save
-      redirect_to color_update_lane_path(@lane)
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @review.save
+        format.text { render plain: "<h1>Review Submitted!</h1>" }
+      else
+        format.text { render partial: 'lanes/form', formats: :html, locals: { lane: @lane, review: @review } }
+      end
     end
+    # respond_to do |format|
+    #   if @review.save
+    #     format.html { redirect_to color_update_lane_path(@lane) }
+    #     format.json
+    #   else
+    #     format.html { render "restaurants/show", status: :unprocessable_entity }
+    #     format.json
+    #   end
+    # end
   end
 
   private

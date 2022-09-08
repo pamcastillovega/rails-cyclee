@@ -1,0 +1,16 @@
+<%= simple_form_for([lane, review],
+      data: {review_submit_target: "form", action: "submit->review-submit#send"}) do |f| %>
+  <div class="input-wrap">
+    <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}} %>
+  </div>
+  <div class="input-wrap">
+    <%= f.input :comment, placeholder: "Write your comments here" %>
+  </div>
+  <div class="input-wrap">
+    <%# <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "upload" %>
+    <%= f.input :photo, as: :file, class: "upload" %>
+  </div>
+  <div class="input-wrap">
+    <%= f.submit 'Submit', class: "btn btn-cyclee2" %>
+  </div>
+  <% end %>

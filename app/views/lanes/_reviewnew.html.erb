@@ -1,19 +1,12 @@
-<div class="partial">
-  <div class="form-wrap">
-    <%= simple_form_for [lane, review] do |f| %>
-      <div class="input-wrap">
-        <%= f.input :rating, collection: (1..5).to_a, input_html: {data: {controller: "star-rating"}} %>
-      </div>
-      <div class="input-wrap">
-        <%= f.input :comment, placeholder: "Write your comments here" %>
-      </div>
-      <div class="input-wrap">
-        <%# <%= f.input :photos, as: :file, input_html: { multiple: true }, class: "upload" %>
-        <%= f.input :photo, as: :file, class: "upload" %>
-      </div>
-      <div class="input-wrap">
-        <%= f.submit 'Submit', class: "btn btn-cyclee2" %>
-      </div>
-    <% end %>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<%= lane.id %>" aria-expanded="false" aria-controls="collapseOne">
+      <%= lane.name %>
+    </button>
+  </h2>
+  <div id="collapse-<%= lane.id %>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body" data-controller="review-submit">
+      <%= render 'lanes/form', lane: lane, review: review %>
+    </div>
   </div>
 </div>
