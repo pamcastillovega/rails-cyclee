@@ -1,19 +1,29 @@
-<div class="cyclee-card-image report-new d-flex justify-content-center align-items-center">
-  <div class="cyclee-report-card-address report-index">
-    <i class="fa-solid fa-flag fa-2x"></i>
-    <div class="cyclee-report-card-title">
-      <h2 class="m-0"><%= @parking_location.address %></h2>
-      <p><%= @reports.count %> reported incidents of theft or damage.</p>
+<div class="new-report-container">
+
+  <div class="parking-wrap">
+    <div class="cyclee-report-card-address report-index">
+      <% if @parking_location.reports.present? %>
+        <i class="fa-solid fa-square-parking report"></i>
+      <% else %>
+        <i class="fa-solid fa-square-parking no-report"></i>
+      <% end %>
+        <div class="cyclee-report-card-title">
+          <p class="m-0 address"><%= @parking_location.address %></p>
+          <p class="incidents"><%= @reports.count %> reported incidents of theft or damage.</p>
+        </div>
     </div>
   </div>
-</div>
-<div class="container report-new">
-  <h2>How was your experience with this parking spot?</h2>
-  <%= simple_form_for([@parking_location, @report]) do |f| %>
-    <%= f.input :date %>
-    <%= f.input :time %>
-    <%= f.input :comment %>
-    <%= f.input :photo %>
-    <%= f.button :submit, value: 'Submit', class: "btn-cyclee2" %>
-    <% end %>
+
+  <div class="form-new-report">
+    <h2>Tell us what happened:</h2>
+    <%= simple_form_for([@parking_location, @report]) do |f| %>
+      <%= f.input :date, input_html: { class: "input date" } %>
+      <%= f.input :time, input_html: { class: "input time" }  %>
+      <%= f.input :comment, input_html: { class: "input comment" }  %>
+      <%= f.input :photo, input_html: { class: "input photo" }  %>
+      <%= f.button :submit, value: 'Submit', class: "btn-cyclee1" %>
+      <% end %>
+  </div>
+
+
 </div>
