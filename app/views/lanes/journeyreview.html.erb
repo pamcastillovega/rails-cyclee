@@ -1,8 +1,7 @@
 <div class="container">
-  <% @lanes.each do |lane| %>
-    <div class="cyclee-lane cyclee-big cyclee-grey cyclee-review">
-      <p><%= lane.name %></p>
-    </div>
-    <%= render "reviewnew", lane: lane, review: @review %>
-  <% end %>
+  <div class="accordion" id="accordionExample">
+     <% @lanes.each do |lane| %>
+      <%= render "reviewnew", lane: lane, review: @review %>
+    <% end %>
+  </div>
 </div>

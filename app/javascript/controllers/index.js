@@ -25,6 +25,9 @@ application.register("parked-location", ParkedLocationController)
 import ParkingController from "./parking_controller"
 application.register("parking", ParkingController)
 
+import ReviewSubmitController from "./review_submit_controller"
+application.register("review-submit", ReviewSubmitController)
+
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)
 
