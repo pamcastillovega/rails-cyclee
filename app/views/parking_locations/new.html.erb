@@ -1,35 +1,28 @@
 <div class="container d-flex flex-column align-items-center">
-<br>
-<br>
-<h1>Create a new Parking spot!</h1>
-
 
   <div id="location-new">
+    <h1>Create a new Parking spot!</h1>
     <%= simple_form_for @parking_location do |f| %>
       <%= f.input :address,
       input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
       wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
       %>
-    <div data-controller="parking"
-          data-parking-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        <div id="parkingmap" style="width: 350px; height: 300px;"
-          data-parking-target="parker"
-          data-parking-markers-value="<%= @markers.to_json %>"></div>
-    </div>
+      <div class="location-mapcontainer">
+        <div data-controller="parking"
+              data-parking-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            <div id="parkingmap" style="width: 350px; height: 300px;"
+              data-parking-target="parker"
+              data-parking-markers-value="<%= @markers.to_json %>"></div>
+        </div>
+      </div>
+
       <br>
-      <%= f.submit :Create, class: "btn btn-cyclee3" %>
-      <% end %>
+      <div class="parking-page-buttons">
+        <%= f.submit :Create, class: "btn btn-cyclee1" %>
+    <% end %>
+
+        <%= link_to "Park", root_path, class: "btn btn-cyclee2" %>
+      </div>
   </div>
 
- <%= link_to "Park", root_path, class: "btn btn-cyclee3" %>
 </div>
-
-
-
-
-<%= render "shared/footer" %>
-
-
-<%# -- %>
-<%# <%= link_to "Get Current Location", root_path, class: "btn btn-cyclee3" %>
-<%# <%= current_user.parking_histories.last.parking_location.address %>

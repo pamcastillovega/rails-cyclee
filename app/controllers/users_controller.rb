@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    @lng = @user.parking_histories.last.parking_location.longitude
-    @lat = @user.parking_histories.last.parking_location.latitude
+    @lng = @user.parking_histories.last.parking_location.longitude if @user.parking_histories.present?
+    @lat = @user.parking_histories.last.parking_location.latitude if @user.parking_histories.present?
   end
 
   def edit
@@ -21,5 +21,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:photo)
   end
-
 end

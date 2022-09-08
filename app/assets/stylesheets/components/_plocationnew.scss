@@ -21,6 +21,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .location-mapcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   form#new_parking_location {
     label {
       display: none;
@@ -32,10 +37,19 @@
       padding-left: 40px !important;
       padding-right: 0px !important;
       border-radius: 5px;
-      width: 350px;
-      border: none;
-      margin-left: 20px
+      // width: 350px;
+      // border: none;
+      // margin-left: 20px
     }
+
+
+    .parking-page-buttons {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      // margin-bottom: 20px;
+    }
+
     .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
       margin: 20px !important;
       border-radius: 5px;
@@ -47,4 +61,6 @@
       }
     }
   }
+
+
 }

@@ -7,7 +7,6 @@
     margin: 20px;
   }
 }
-
 .user-profile-contents {
   margin: 25px 0;
   display: flex;
@@ -24,7 +23,6 @@
     color: $c-darkgray;
   }
 }
-
 .parked-wrap {
   margin: 25px 0;
   .content {
@@ -38,7 +36,6 @@
     }
   }
 }
-
 .history-wrap {
   margin: 25px 0;
   h2 {
@@ -70,4 +67,16 @@
       }
     }
   }
+}
+
+
+.sign-out {
+  background-color: #ffffff;
+  // text-align: right;
+  a {
+    margin: 0px 0px 0px 310px;
+    text-decoration: none;
+    color: inherit;
+  }
+
 }

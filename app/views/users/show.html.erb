@@ -1,4 +1,8 @@
 <div class="user-container">
+  <div class="sign-out">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  </div>
+
   <div class="content-wrap">
     <% if current_user.present? %>
     <div class="user-profile-contents">
@@ -24,8 +28,8 @@
               data-parked-location-target="parked">
         </div>
       </div>
-
     </div>
+
     <div class="history-wrap">
       <h2>Parking History:</h2>
       <div class="history">
@@ -46,6 +50,7 @@
                 <p class="address"><%= history.parking_location.address %></p>
                 <p class="created-at"><%= history.created_at %></p>
               </div>
+            </div>
             <% end %>
           <% end %>
         <% else %>
@@ -57,4 +62,3 @@
   </div>
 
 </div>
-<%= render "shared/footer" %>
