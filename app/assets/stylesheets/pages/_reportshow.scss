@@ -15,10 +15,28 @@
 }
 
 .parking-wrap {
+  padding: 0 10px;
   .cyclee-report-card-address {
     margin-top: 20px;
+    // border: solid 1px green;
+    .fa-square-parking {
+      margin-right: 10px;
+    }
     .fa-square-parking.no-report {
       color: $c-darkgray;
+    }
+    .fa-square-parking.report {
+      color: $c-red;
+    }
+    .cyclee-report-card-title {
+      .address {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .incidents {
+        margin-top: 10px;
+        font-size: 16px;
+      }
     }
   }
 }
@@ -28,14 +46,4 @@
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 20px;
-}
-
-.address {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.incidents {
-  margin-top: 10px;
-  font-size: 16px;
 }
