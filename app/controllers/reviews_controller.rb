@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        format.html { redirect_to root_path }
         format.text { render partial: 'lanes/completed', formats: :html }
       else
         format.text { render partial: 'lanes/form', formats: :html, locals: { lane: @lane, review: @review } }
