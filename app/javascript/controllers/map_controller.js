@@ -86,14 +86,6 @@ export default class extends Controller {
     // console.log(coordinate2);
   }
 
-  async fetchCoordinates(query) {
-
-    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?country=ca&limit=1&access_token=${this.apiKeyValue}`);
-
-    const data = await response.json()
-    return data["features"][0]["center"]
-  }
-
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
