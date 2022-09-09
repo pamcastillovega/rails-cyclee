@@ -1,5 +1,6 @@
 .mapbox-directions-component-keyline{
   margin: 8px !important;
+  width: 350px;
 }
 
 .mapboxgl-ctrl-directions {
@@ -27,21 +28,33 @@
 
 #navdirection {
   position: absolute;
-  bottom: 298px;
+  bottom: 259px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  align-items: center;
   width: 100%;
+  height: 39px;
 
   #navexitbutton {
-    background-color: $c-red;
     color: white;
-    font-size: 12px;
+    font-size: 18px;
+    padding: 1px;
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
   }
 
   #navreviewbutton{
     background-color: $c-green;
     color: white;
-    font-size: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    height: 35px;
+    display: flex;
+    align-items: center;
   }
 
 }
