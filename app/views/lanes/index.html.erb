@@ -33,8 +33,6 @@
     </div>
   </div>
   <div data-map-target="button" id="navdirection">
-    <%= link_to root_path, data: {map_target: "exit", turbo: "false"}, class: "btn d-none", id: "navexitbutton" do %>
-      <i class="fa-solid fa-xmark"></i>
-    <% end %>
+    <%= link_to "Exit", root_path, data: {map_target: "exit", turbo: "false"}, class: "btn d-none", id: "navexitbutton" %>
   </div>
 </div>
