@@ -2,33 +2,43 @@
   height: 100vh;
   background-color: white;
   padding-top: 5px;
+  h1 {
+    margin: 50px 20px 20px 20px;
+  }
+  .form-wrap {
+    margin: 30px 20px;
+  }
 }
 
-h1 {
-  margin: 50px 20px 20px 20px;
-}
-
-.search-wrap {
-  margin: 0 20px;
-  .new-parking-form-wrap {
+.search-form-wrap {
+  display: flex;
+  justify-content: space-between;
+  .search-input-wrap {
+    margin: 0;
+    padding: 0;
+    width: 80%;
     label {
       display: none;
     }
-    .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-      border: solid 1px $c-lightgray;
-      border-radius: 5px;
-      margin: 0;
-      width: 100%;
-      svg {
-        display: none;
-      }
-      // .mapboxgl-ctrl-geocoder--input {
-      //   border: solid 1px red;
-      // }
-    }
   }
-  .button-wrap {
-    // border: solid 1px red;
-    margin-top: 30px;
+  .map-wrap {
+    margin-top: 20px;
   }
+}
+
+.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+  border: solid 1px $c-lightgray;
+  border-radius: 4px;
+  padding: 3px 0 2px 0;
+  margin: 0;
+  .mapboxgl-ctrl-geocoder--input {
+    padding: 5px 10px !important;
+  }
+  svg {
+    display: none;
+  }
+}
+
+.btn-cyclee2 {
+  width: 120px;
 }
