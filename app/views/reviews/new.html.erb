@@ -1,6 +1,7 @@
 <div class="review-container">
+
   <div class="cyclee-lane cyclee-big
-    <% if @avgrating.nil? %>
+    <% if @avgrating.zero? %>
       <%= 'cyclee-grey' %>
     <% elsif @avgrating <= 2 %>
       <%= 'cyclee-red' %>
@@ -9,9 +10,12 @@
     <% elsif @avgrating > 3 %>
       <%= 'cyclee-green' %>
     <% end %>" %>
-      <p><%= @lane.name %></p>
-      <i class="fa-solid fa-angle-right fa-xl"></i>
+    <div class="title-wrap">
+      <i class="fa-solid fa-road fa-2xl"></i>
+      <h2><%= @lane.name %></h2>
+    </div>
   </div>
+
   <div class="form-review">
     <%= simple_form_for [@lane, @review] do |f| %>
       <%= f.input :rating, collection: (1..5).to_a, label: "Tell us about your experience with this lane:", input_html: { data: {controller: "star-rating"} } %>

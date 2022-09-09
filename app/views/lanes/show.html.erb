@@ -11,7 +11,7 @@
         <%= 'cyclee-green' %>
       <% end %>" %>
         <p><%= @lane.name %></p>
-        <i class="fa-solid fa-angle-right fa-xl"></i>
+        <%# <i class="fa-solid fa-angle-right fa-xl"></i> %>
     </div>
     <p class="lane-type">Lane Type: <%= @lane.lane_type %></p>
     <p class="lane-rating"><%= @avgrating.zero? ? "No ratings for this lane yet" : "Rating: #{@avgrating}" %></p>
