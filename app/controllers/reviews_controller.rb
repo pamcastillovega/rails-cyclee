@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
+        color_update(@lane)
         format.html { redirect_to root_path }
         format.text { render partial: 'lanes/completed', formats: :html }
       else
@@ -35,8 +36,29 @@ class ReviewsController < ApplicationController
     #     format.json
     #   end
     # end
+
+
   end
 
+  def color_update(lane)
+    ratings = []
+    lane.reviews.each do |review|
+      ratings << review.rating
+    end
+    average = ratings.length.zero? ? 0 : ratings.sum / ratings.length
+
+    case average
+    when 1..2
+      lane.color = "#F94C66"
+    when 3
+      lane.color = "#FFC54D"
+    when 3..5
+      lane.color = "#53BF9D"
+    else
+      lane.color = "#616161" if lane.color.nil?
+    end
+    lane.save!
+  end
   private
 
   def review_params
