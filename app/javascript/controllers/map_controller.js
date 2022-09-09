@@ -162,7 +162,23 @@ export default class extends Controller {
       // });
 
       e.target.addLayer({
-        'id': 'full',
+        'id': 'first',
+        'type': 'line',
+        'source': 'full',
+        'layout': {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+        'paint': {
+        'line-color': ['get', 'color'],
+        'line-opacity': 0.01,
+        'line-width': 15
+        }
+
+      });
+
+      e.target.addLayer({
+        'id': 'second',
         'type': 'line',
         'source': 'full',
         'layout': {
@@ -176,7 +192,7 @@ export default class extends Controller {
 
       });
 
-    e.target.on('click', 'full', (e) => {
+    e.target.on('click', 'first', (e) => {
       const objectID = e.features[0].properties.objectid
       // update()
       // console.log(objectID);
