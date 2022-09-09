@@ -24,20 +24,32 @@
   }
 }
 
-#navreview{
-  position: relative;
-  top: 571px;
-  left: 0px;
-  background-color: $c-red;
-  color: white;
-  font-size: 12px;
+
+#navdirection {
+  position: absolute;
+  bottom: 298px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+
+  #navexitbutton {
+    background-color: $c-red;
+    color: white;
+    font-size: 12px;
+  }
+
+  #navreviewbutton{
+    background-color: $c-green;
+    color: white;
+    font-size: 12px;
+  }
+
 }
 
-#navexit {
-  position: relative;
-  top: 523px;
-  left: 246px;
-  background-color: $c-green;
-  color: white;
-  font-size: 12px;
+#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > div.directions-control.directions-control-inputs > div > div > button {
+  background-color: transparent;
+}
+
+#mapbox-directions-destination-input > div > div > button{
+  background-color: transparent;
 }

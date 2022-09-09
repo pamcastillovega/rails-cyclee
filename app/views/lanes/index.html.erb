@@ -32,7 +32,7 @@
             data-map-target="lanepartial"></div>
     </div>
   </div>
-  <div data-map-target="button">
-    <%= link_to "Exit", root_path, data: {map_target: "exit"}, class: "btn btn-cyclee1 d-none", id: "navexit" %>
+  <div data-map-target="button" id="navdirection">
+    <%= link_to "Exit", root_path, data: {map_target: "exit", turbo: "false"}, class: "btn btn-cyclee1 d-none", id: "navexitbutton"%>
   </div>
 </div>
