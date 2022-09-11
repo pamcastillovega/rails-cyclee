@@ -7,9 +7,9 @@
     <% if current_user.present? %>
     <div class="user-profile-contents">
       <div class="cyclee-profile-user">
-      <%= link_to edit_user_path(current_user) do  %>
-        <p><%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill, class: "avatar") : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
-      <% end  %>
+        <%= link_to edit_user_path(current_user) do  %>
+          <%= current_user.photo.present? ? (cl_image_tag current_user.photo.key, crop: :fill, class: "avatar") : (image_tag "logo.png", crop: :fill, class: "avatar") %>
+        <% end  %>
       </div>
       <p><%= current_user.first_name %> <%= current_user.last_name %></p>
      </div>
@@ -17,7 +17,7 @@
     <div class="parked-wrap">
       <div class="content">
         <h2>Where I'm parked:</h2>
-        <p><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></p>
+        <p class="location-address"><%= current_user.parking_histories.present? ? current_user.parking_histories.last.parking_location.address : "You have not parked in any of the locations" %></p>
       </div>
       <div data-controller="parked-location"
             data-parked-location-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"

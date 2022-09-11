@@ -5,40 +5,22 @@
   h1 {
     margin: 50px 20px 20px 20px;
   }
-  .form-wrap {
+  .map-wrap, .form-wrap {
     margin: 30px 20px;
   }
 }
 
-.search-form-wrap {
-  display: flex;
-  justify-content: space-between;
-  .search-input-wrap {
-    margin: 0;
-    padding: 0;
-    width: 80%;
-    label {
-      display: none;
-    }
-  }
-  .map-wrap {
-    margin-top: 20px;
-  }
-}
-
-.mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
-  border: solid 1px $c-lightgray;
-  border-radius: 4px;
-  padding: 3px 0 2px 0;
-  margin: 0;
-  .mapboxgl-ctrl-geocoder--input {
-    padding: 5px 10px !important;
-  }
-  svg {
+.parking_location_address {
+  label, svg {
     display: none;
   }
-}
-
-.btn-cyclee2 {
-  width: 120px;
+  .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+    border: solid 1px $c-lightgray;
+    border-radius: 4px;
+    padding: 3px 0 2px 0;
+    margin: 0;
+    .mapboxgl-ctrl-geocoder--input {
+      padding: 5px 10px !important;
+    }
+  }
 }
