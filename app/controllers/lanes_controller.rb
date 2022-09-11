@@ -71,11 +71,11 @@ class LanesController < ApplicationController
 
     case average
     when 1..2
-      @lane.color = "#F94C66"
+      @lane.color = "#DB4437"
     when 3
-      @lane.color = "#FFC54D"
+      @lane.color = "#F4B400"
     when 3..5
-      @lane.color = "#53BF9D"
+      @lane.color = "#0F9D58"
     else
       @lane.color = "#616161" if lane.color.nil?
     end
@@ -98,7 +98,6 @@ class LanesController < ApplicationController
     # @avgrating = @ratings.length.zero? ? 0 : @ratings.sum / @ratings.length
   end
 end
-
 
 # a = params[:id].split(",")
 # a.map! { |n| n.to_i }
