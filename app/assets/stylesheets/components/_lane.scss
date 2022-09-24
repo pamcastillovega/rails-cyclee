@@ -25,16 +25,18 @@
   width: 370px;
   .title-wrap {
     margin: auto;
+    padding: 0 20px;
     display: flex;
     .fa-road {
       color: white;
       margin: auto;
     }
     h2 {
+      font-size: 16px;
       font-weight: 500;
       color: white;
       margin: auto;
-      padding-left: 10px;
+      padding-left: 15px;
     }
   }
 }
