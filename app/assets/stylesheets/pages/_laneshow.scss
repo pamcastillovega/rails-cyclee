@@ -1,19 +1,20 @@
 #map {
   z-index: -1;
   .slider-wrap {
+    z-index: 5;
     position: fixed;
     bottom: 0;
     height: 210px;
     transition: all .3s ease-out;
   }
   .active {
-    height: 85%;
+    height: 100%;
     transition: all .3s ease-out;
+    overflow: scroll;
   }
 }
 
 .container {
-  z-index: 5;
   background-color: white;
   border-radius: 8px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -30,6 +31,7 @@
       margin: 10px auto;
     }
   }
+
   .lane-wrap {
     margin: 20px 10px;
     .lane-details {
@@ -40,4 +42,5 @@
       }
     }
   }
+
 }

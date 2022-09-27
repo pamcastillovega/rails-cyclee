@@ -204,7 +204,6 @@ export default class extends Controller {
           this.lanepartialTarget.innerHTML = data
         })
 
-
       // const coordinates = e.features[0].geometry.coordinates;
       // console.log(coordinates);
       // const type = e.features[0].properties.INFRA_HIGHORDER;
