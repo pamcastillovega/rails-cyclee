@@ -18,17 +18,20 @@
   background-color: white;
   .cyclee-card-contents {
     padding: 25px 0;
-    margin: 0 10px;
+    margin: 0 20px;
     .cyclee-card-user {
       display: flex;
       margin-bottom: 15px;
       .user-profile {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
+        img {
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+        }
       }
       .user-name {
-        margin-left: 25px;
+        margin: auto 10px;
+        font-weight: bold;
       }
     }
     .review-content {
