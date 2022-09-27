@@ -5,6 +5,7 @@
       data-map-lanes-name-value="<%= @lane.name.to_json %>"
       data-map-lanes-coordinates-value="<%= @lane.coordinates %>"
       data-map-objectID-value="">
+
   <div id="map"
         data-map-target="wrapper"
         data-controller="slider">
@@ -32,7 +33,9 @@
             data-map-target="lanepartial"></div>
     </div>
   </div>
+
   <div data-map-target="button" id="navdirection">
     <%= link_to "Exit", root_path, data: {map_target: "exit", turbo: "false"}, class: "btn d-none", id: "navexitbutton" %>
   </div>
+
 </div>
