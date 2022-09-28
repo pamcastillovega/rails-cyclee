@@ -1,12 +1,12 @@
-<div class="cyclee-card">
-  <div class="cyclee-card-contents">
-    <div class="cyclee-card-user">
-      <div class="user-profile">
-        <%= user.photo.present? ? (cl_image_tag user.photo.key, crop: :fill, class: "avatar") : (image_tag "logo.png", crop: :fill, class: "avatar") %>
+<div class="review-card">
+  <div class="review-card-content">
+    <div class="user-wrap">
+      <div class="user-img-wrap">
+        <%= user.photo.present? ? (cl_image_tag user.photo.key) : (image_tag "logo.png") %>
       </div>
       <p class="user-name"><%= user.first_name %> <%= user.last_name %></p>
-    </div>
-    <div class="review-content">
+   </div>
+    <div class="review">
       <div class="star-rating">
         <% review.rating.times do %>
           <i class="fa-solid fa-star"></i>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <% if review.photo.present? %>
-    <div class="review-img-wrap">
+    <div class="review-card-img-wrap">
       <%= cl_image_tag review.photo.key, crop: :fill %>
     </div>
   <% end %>

@@ -13,20 +13,21 @@
   }
 }
 
-.cyclee-card {
+.review-card {
   border-top: solid 1px $c-lightgray;
   background-color: white;
-  .cyclee-card-contents {
+  .review-card-content {
     padding: 25px 0;
     margin: 0 20px;
-    .cyclee-card-user {
+    .user-wrap {
       display: flex;
       margin-bottom: 15px;
-      .user-profile {
+      .user-img-wrap {
         img {
           border-radius: 50%;
           width: 40px;
           height: 40px;
+          object-fit: cover;
         }
       }
       .user-name {
@@ -34,7 +35,7 @@
         font-weight: bold;
       }
     }
-    .review-content {
+    .review {
       .star-rating {
         margin-bottom: 5px;
       }
@@ -43,7 +44,7 @@
       }
     }
   }
-  .review-img-wrap {
+  .review-card-img-wrap {
     width: 100%;
     padding-bottom: 15px;
     img {
@@ -51,7 +52,7 @@
     }
   }
 }
-.cyclee-card:last-child {
+.review-card:last-child {
   padding-bottom: 100px;
 }
 
