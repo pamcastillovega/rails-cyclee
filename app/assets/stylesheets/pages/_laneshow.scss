@@ -11,6 +11,9 @@
     height: 100%;
     transition: all .3s ease-out;
     overflow: scroll;
+    .container {
+      border-radius: 0px;
+    }
   }
 }
 
@@ -31,9 +34,8 @@
       margin: 10px auto;
     }
   }
-
   .lane-wrap {
-    margin: 20px 10px;
+    margin: 20px 10px 30px 10px;
     .lane-details {
       margin: 20px auto;
       .lane-type, .lane-rating {
@@ -42,5 +44,4 @@
       }
     }
   }
-
 }

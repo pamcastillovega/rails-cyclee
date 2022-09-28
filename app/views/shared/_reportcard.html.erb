@@ -1,17 +1,19 @@
-<div class="cyclee-card">
+<div class="review-card">
+  <div class="review-card-content">
+    <div class="user-wrap">
+      <div class="user-img-wrap">
+        <%= report.user.photo.present? ? (cl_image_tag report.user.photo.key) : (image_tag "logo.png") %>
+      </div>
+      <p class="user-name"><%= report.user.first_name %> <%= report.user.last_name %></p>
+    </div>
+    <div class="review">
+      <p><%= report.date %></p>
+      <p><%= report.comment %></p>
+    </div>
+  </div>
   <% if report.photo.present? %>
-    <div class="cyclee-card-image">
+    <div class="review-card-image-wrap">
       <%= cl_image_tag report.photo.key, crop: :fill %>
     </div>
   <% end %>
-  <div class="cyclee-card-contents">
-    <div class="cyclee-card-user">
-      <p><%= report.user.photo.present? ? (cl_image_tag report.user.photo.key, crop: :fill, class: "avatar") : (image_tag "logo.png", crop: :fill, class: "avatar") %></p>
-    </div>
-    <div class="text-content">
-      <p><strong><%= report.user.first_name %> <%= report.user.last_name %></strong></p>
-      <p class="incident"><%= report.date %></p>
-      <p class="text-content"><%= report.comment %></p>
-    </div>
-  </div>
 </div>
