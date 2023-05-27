@@ -6,9 +6,9 @@ USER_TYPES = %w[Sport Delivery Commuter]
 LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
 
 puts 'Cleaning up database...'
+Review.destroy_all
 User.destroy_all
 Lane.destroy_all
-Review.destroy_all
 ParkingLocation.destroy_all
 ParkingHistory.destroy_all
 Report.destroy_all
@@ -90,12 +90,24 @@ puts 'Created parking location'
 
 # Add lanes to map
 lanes["features"].each do |lane|
-  Lane.create(
+  lane = Lane.create(
     coordinates: lane['geometry']['coordinates'].first,
     name: "#{lane['properties']['STREET_NAME']} (#{lane['properties']['FROM_STREET']} - #{lane['properties']['TO_STREET']})",
     lane_type: lane['properties']['INFRA_HIGHORDER'],
     objectid: lane['properties']['OBJECTID']
   )
+  rand(1..5).times do
+    Review.create(
+      rating: rand(1..5),
+      comment: Faker::Lorem.sentence(word_count: 3),
+      lane:,
+      user: User.all.sample
+    )
+  end
+
+  lane.color_update!
+  puts lane.color
+
   puts 'Lane created'
 end
 
