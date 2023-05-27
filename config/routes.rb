@@ -12,9 +12,6 @@ Rails.application.routes.draw do
     collection do
       get :sample, :journeyreview
     end
-    member do
-      get :color_update
-    end
   end
 
   resources :users
