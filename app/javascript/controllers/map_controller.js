@@ -40,7 +40,6 @@ export default class extends Controller {
       showUserHeading: true
     })
 
-    // this.#fitMapToMarkers()
     this.addMarkersToMap()
     this.map.addControl(this.directions, 'top-left')
     this.map.addControl(this.location, 'top-right')
@@ -51,7 +50,6 @@ export default class extends Controller {
 
   addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      // const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       const customMarker = document.createElement("div")
       customMarker.className = "marker"
       customMarker.style.backgroundImage = `url('${marker.image_url}')`
@@ -61,7 +59,6 @@ export default class extends Controller {
 
       let oneMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
-        // .setPopup(popup)
         .addTo(this.map)
       currentMarkers.push(oneMarker)
       oneMarker.getElement().addEventListener('click', () => {
@@ -72,9 +69,6 @@ export default class extends Controller {
           this.lanepartialTarget.innerHTML = data
         })
       });
-      // popup.on('open', (event) => {
-      //   console.log(marker.id);
-      // });
     })
   }
 
