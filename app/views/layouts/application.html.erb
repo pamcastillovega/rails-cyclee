@@ -15,16 +15,13 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <script src="https://kit.fontawesome.com/75388dd286.js" crossorigin="anonymous"></script>
     <%= render 'shared/ios_pwa_links' %>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
   </head>
 
   <body>
-  <%= render "shared/flashes" %>
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-
-
+    <%= render "shared/flashes" %>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
     <%= yield %>
-
-  <%= render "layouts/footer" unless current_user.nil?%>
+    <%= render "layouts/footer" unless current_user.nil? %>
   </body>
 </html>
