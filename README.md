@@ -1,6 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-
-
 ![Logo](https://raw.githubusercontent.com/flabroo/cyclee/master/app/assets/images/cyclee-logo.png)
 # Cyclee
 Discover our community-powered, mobile-first Progressive Web Application (PWA) designed to empower users with the ability to rate bicycle lanes, create customized routes using bike-friendly paths, and pinpoint areas affected by bike theft. This application is tailor-made for the vibrant city of Toronto, known for its extensive network of bicycle lanes and abundant parking options.
