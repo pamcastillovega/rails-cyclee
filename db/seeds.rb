@@ -2,9 +2,6 @@ file = File.join(__dir__, 'rafi.json')
 lane_data = File.read(file)
 lanes = JSON.parse(lane_data)
 
-USER_TYPES = %w[Sport Delivery Commuter]
-LANE_TYPES = %w[Protected Painted Contra-Flow Multi-Use Sharrow]
-
 puts 'Cleaning up database...'
 Review.destroy_all
 User.destroy_all
